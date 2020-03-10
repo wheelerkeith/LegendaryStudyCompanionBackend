@@ -12,6 +12,9 @@ public interface ResourceDao {
 	// get resource by id
 	public Resource getResourceById(int id);
 	
+	// get resource by url
+	public Resource getResourceByUrl(String url);
+	
 	// get all resources
 	public List<Resource> getAllResources();
 	

@@ -18,8 +18,8 @@ public class ResourceDaoImpl implements ResourceDao{
 	
 	@Override
 	public int addResource(Resource r) {
-		
-		try (Session s = HibernateUtil.getSession()) {
+			
+		try (Session s = HibernateUtil.getSession()) {	
 			Transaction tx = s.beginTransaction();
 			int pk = (int) s.save(r);
 			
@@ -38,6 +38,24 @@ public class ResourceDaoImpl implements ResourceDao{
 		
 		try (Session s = HibernateUtil.getSession()) {
 			r = s.get(Resource.class, id);
+		}
+		
+		return r;
+	}
+	
+	
+	// get resource by url
+	
+	@Override
+	public Resource getResourceByUrl(String url) {
+
+		Resource r = null;
+		
+		try (Session s = HibernateUtil.getSession()) {
+			String hql = "from Resource where url = :urlVar";
+			Query<Resource> resourceQuery = s.createQuery(hql, Resource.class);
+			resourceQuery.setParameter("urlVar", url);
+			r = resourceQuery.getSingleResult();
 		}
 		
 		return r;

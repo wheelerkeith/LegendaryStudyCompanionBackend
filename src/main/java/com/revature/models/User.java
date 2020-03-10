@@ -1,13 +1,19 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name="app_user")
@@ -33,18 +39,18 @@ public class User implements Serializable {
 	private String fullName;
 	private int role;
 	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name="user_liked_resource",
+			joinColumns= {@JoinColumn(name="user_id")},
+			inverseJoinColumns= {@JoinColumn(name="resource_id")})
+	private List<Resource> resourceList = new ArrayList<>();
+	
+	
 	public User() {
 		super();
 	}
-	
-//	public User(int id, String userName, String email, String fullName, int role) {
-//		this.id = id;
-//		this.userName = userName;
-//		this.email = email;
-//		this.fullName = fullName;
-//		this.role = role;
-//		
-//	}
+
 	
 	public User(String userName, String password, String email, String fullName, int role) {
 		this.userName = userName;
@@ -102,6 +108,14 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
+	public List<Resource> getResourceList() {
+		return resourceList;
+	}
+
+	public void setResourceList(List<Resource> resourceList) {
+		this.resourceList = resourceList;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,6 +124,7 @@ public class User implements Serializable {
 		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((resourceList == null) ? 0 : resourceList.hashCode());
 		result = prime * result + role;
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
@@ -141,6 +156,11 @@ public class User implements Serializable {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (resourceList == null) {
+			if (other.resourceList != null)
+				return false;
+		} else if (!resourceList.equals(other.resourceList))
+			return false;
 		if (role != other.role)
 			return false;
 		if (userName == null) {
@@ -154,7 +174,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", fullName=" + fullName + ", role=" + role + "]";
+				+ ", fullName=" + fullName + ", role=" + role + ", resourceList=" + resourceList + "]";
 	}
 
 }

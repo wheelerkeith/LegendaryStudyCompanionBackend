@@ -7,6 +7,7 @@ import com.revature.models.Subject;
 import com.revature.models.User;
 import com.revature.services.ResourceService;
 import com.revature.services.SubjectService;
+import com.revature.services.UserLikedResourceService;
 import com.revature.services.UserService;
 import com.revature.util.HibernateUtil;
 
@@ -15,6 +16,8 @@ public class Driver {
 	private static UserService us = new UserService();
 	private static SubjectService ss = new SubjectService();
 	private static ResourceService rs = new ResourceService();
+	private static UserLikedResourceService ulrs = new UserLikedResourceService();
+	
 
 	public static void main(String[] args) {
 		
@@ -99,6 +102,23 @@ public class Driver {
 //		
 //		System.out.println("REMOVE Resource ID 6: " + rs.removeResource(r4));
 //		System.out.println(rs.getAllResources());
+		
+//		us.addResourceToList(u3, r5);
+//		us.addResourceToList(u3, r4);
+//		us.addResourceToList(u2, r4);
+//		us.addResourceToList(u3, r3);
+//		us.addResourceToList(u, r3);
+//		us.addResourceToList(u2, r3);
+//		us.addResourceToList(u3, r2);
+//		us.addResourceToList(u3, r1);
+//		
+//		System.out.println(us.getUserById(3));
+//		System.out.println();
+//		System.out.println("GET BY URL: " + rs.getResourceByUrl("https://junit.org/junit5/"));
+//		
+//		System.out.println("GET RESOURCE RATING: " + ulrs.getResourceRating(5));
+//		
+//		System.out.println("DOES THE USER HAVE THE RESOURCE: " + us.findResourceInLikedList(u2, r4));
 		
 	}
 
