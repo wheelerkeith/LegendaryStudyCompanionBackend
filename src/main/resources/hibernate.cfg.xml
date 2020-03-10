@@ -17,6 +17,8 @@
 		
 		<!-- mapping tags can reference resources (hbm files) or classes (with annotations) -->
 		<mapping class="com.revature.models.User"/>
+		<mapping class="com.revature.models.Subject"/>
+		<mapping class="com.revature.models.Resource"/>
 	
 	</session-factory>
 

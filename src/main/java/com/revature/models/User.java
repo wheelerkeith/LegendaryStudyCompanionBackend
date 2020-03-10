@@ -20,15 +20,16 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="user_id")
 	private int id;
 	
-	@Column(unique=true, nullable=false)
+	@Column(name="user_name", unique=true, nullable=false)
 	private String userName;
 	@Column(nullable=false)
 	private String password;
 	@Column(unique=true, nullable=false)
 	private String email;
-	@Column(nullable=false)
+	@Column(name="full_name", nullable=false)
 	private String fullName;
 	private int role;
 	
