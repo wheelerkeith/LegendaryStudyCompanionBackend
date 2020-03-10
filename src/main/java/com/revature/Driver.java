@@ -24,7 +24,7 @@ public class Driver {
 //		Session s = HibernateUtil.getSession();
 //		
 //		s.close();
-		
+//		
 //		User u = new User("jortiz", "pass", "jortiz@mail.com", "Josue Ortiz", 1);
 //		us.addUser(u);
 //		User u2 = new User("jortiz2", "pass2", "jortiz2@mail.com", "Josue Ortiz", 1);
@@ -48,7 +48,7 @@ public class Driver {
 //		
 //		System.out.println("REMOVE USER:" + us.removeUser(u));
 //		System.out.println("LIST ALL USERS: " + us.getAllUsers());
-		
+//		
 //		Subject s = new Subject(".Net");
 //		System.out.println("ADD SUBJECT .NET: " + ss.addSubject(s));
 //		Subject s0 = new Subject("Math");
@@ -73,19 +73,19 @@ public class Driver {
 //		System.out.println("REMOVE MATH SUBJECT: " + ss.removeSubject(s0));
 //		System.out.println(ss.getAllSubjects());
 //		
-//		Resource r = new Resource("https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet", s, 9);
+//		Resource r = new Resource("https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet", s);
 //		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r));
-//		Resource r0 = new Resource("https://www.wolframalpha.com", s1, 10);
+//		Resource r0 = new Resource("https://www.wolframalpha.com", s1);
 //		System.out.println("ADD RESOURCE FOR MATH: " + rs.addResource(r0));
-//		Resource r1 = new Resource("https://en.wikipedia.org/wiki/Football_War", s1, 7);
+//		Resource r1 = new Resource("https://en.wikipedia.org/wiki/Football_War", s1);
 //		System.out.println("ADD RESOURCE FOR HISTORY: " + rs.addResource(r1));
-//		Resource r2 = new Resource("https://www.oracle.com/technetwork/java/javase/jdbc/index.html", s2, 10);
+//		Resource r2 = new Resource("https://www.oracle.com/technetwork/java/javase/jdbc/index.html", s2);
 //		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r2));
-//		Resource r3 = new Resource("https://junit.org/junit5/", s2, 8);
+//		Resource r3 = new Resource("https://junit.org/junit5/", s2);
 //		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r3));
-//		Resource r4 = new Resource("https://www.w3schools.com/asp/webpages_intro.asp", s, 10);
+//		Resource r4 = new Resource("https://www.w3schools.com/asp/webpages_intro.asp", s);
 //		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r4));
-//		Resource r5 = new Resource("https://www.w3schools.com/java/", s2, 10);
+//		Resource r5 = new Resource("https://www.w3schools.com/java/", s2);
 //		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r5));
 //		System.out.println();
 //		
@@ -95,7 +95,7 @@ public class Driver {
 //		System.out.println("GET ALL RESOURCES: " + rs.getAllResources());
 //		System.out.println();
 //		
-//		r1.setRating(3);
+//		
 //		System.out.println("UPDATE HISTORY Resource rating to 3: " + rs.updateResource(r1));
 //		System.out.println(rs.getAllResources());
 //		System.out.println();

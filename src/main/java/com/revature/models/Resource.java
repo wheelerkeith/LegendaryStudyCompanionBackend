@@ -29,17 +29,14 @@ public class Resource implements Serializable{
 	@JoinColumn(name="subject_id")
 	private Subject subject;
 	
-	private int rating;
-	
 	
 	public Resource() {
 		super();
 	}
 	
-	public Resource(String url, Subject subject, int rating) {
+	public Resource(String url, Subject subject) {
 		this.url = url;
 		this.subject = subject;
-		this.rating = rating;
 	}
 
 	public int getId() {
@@ -71,28 +68,15 @@ public class Resource implements Serializable{
 		this.subject = subject;
 	}
 
-
-	public int getRating() {
-		return rating;
-	}
-
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + rating;
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -104,8 +88,6 @@ public class Resource implements Serializable{
 			return false;
 		Resource other = (Resource) obj;
 		if (id != other.id)
-			return false;
-		if (rating != other.rating)
 			return false;
 		if (subject == null) {
 			if (other.subject != null)
@@ -120,10 +102,9 @@ public class Resource implements Serializable{
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Resource [id=" + id + ", url=" + url + ", subject=" + subject + ", rating=" + rating + "]";
+		return "Resource [id=" + id + ", url=" + url + ", subject=" + subject + "]";
 	}
 
 }
