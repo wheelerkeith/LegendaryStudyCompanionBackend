@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.revature.daos.UserDao;
 import com.revature.daos.UserDaoImpl;
+import com.revature.models.Resource;
 import com.revature.models.User;
 
 public class UserService {
@@ -67,6 +68,30 @@ public class UserService {
 	// update user information
 	
 	public int updateUser(User u) {
+		return ud.updateUser(u);
+	}
+	
+	
+	// find resource in liked list
+	public int findResourceInLikedList(User u, Resource r) {
+		
+		int found = 0;
+		
+		for (Resource r0 : u.getResourceList()) {
+			if (r0 == r) {
+				found = 1;
+			}			
+		}
+		
+		return found;
+	}
+	
+	// add resource to resource list
+	
+	public int addResourceToList(User u, Resource r) {
+		
+		u.getResourceList().add(r);
+		
 		return ud.updateUser(u);
 	}
 	

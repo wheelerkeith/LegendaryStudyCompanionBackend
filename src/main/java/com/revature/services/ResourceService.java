@@ -20,6 +20,11 @@ public class ResourceService {
 		return rd.getResourceById(id);
 	}
 	
+	// get resource by URL
+	public Resource getResourceByUrl(String url) {
+		return rd.getResourceByUrl(url);
+	}
+	
 	// get all resources
 	public List<Resource> getAllResources() {
 		return rd.getAllResources();
