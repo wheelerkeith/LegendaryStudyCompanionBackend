@@ -26,18 +26,18 @@ public class StudySet implements Serializable {
 	private String name;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
-	private int userId;
+	private User user;
 	
 	public StudySet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public StudySet(int id, String name, int userId) {
+	public StudySet(int id, String name, User user) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.userId = userId;
+		this.user = user;
 	}
 
 	public int getId() {
@@ -56,12 +56,12 @@ public class StudySet implements Serializable {
 		this.name = name;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class StudySet implements Serializable {
 		int result = 1;
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + userId;
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -90,13 +90,16 @@ public class StudySet implements Serializable {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (userId != other.userId)
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "StudySet [id=" + id + ", name=" + name + ", userId=" + userId + "]";
+		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + "]";
 	}	
 }
