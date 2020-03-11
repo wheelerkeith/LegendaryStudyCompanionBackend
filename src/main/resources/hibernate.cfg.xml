@@ -5,9 +5,9 @@
 	<session-factory>
 	
 		<!-- credentials to connect to db  -->
-		<property name="hibernate.connection.url"></property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost/project_2</property>
 		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.password">reporepa</property>
 	
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
