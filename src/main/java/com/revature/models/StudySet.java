@@ -1,14 +1,19 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -27,6 +32,13 @@ public class StudySet implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name = "study_set_resources",
+			joinColumns = { @JoinColumn(name = "studyset_id")},
+			inverseJoinColumns = { @JoinColumn(name = "resource_id")})
+	private List<Resource> resources = new ArrayList<Resource>();
 	
 	public StudySet() {
 		super();
@@ -63,6 +75,14 @@ public class StudySet implements Serializable {
 	public void setUserId(User user) {
 		this.user = user;
 	}
+	
+	public List<Resource> getResourceList() {
+		return resources;
+	}
+	
+	public void setResourceList(List<Resource> resources) {
+		this.resources = resources;
+	}
 
 	@Override
 	public int hashCode() {
@@ -88,7 +108,9 @@ public class StudySet implements Serializable {
 		if (name == null) {
 			if (other.name != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)) {
+			return false;
+		} else if (!resources.equals(other.resources))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -100,6 +122,6 @@ public class StudySet implements Serializable {
 
 	@Override
 	public String toString() {
-		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + "]";
+		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + ", resources=" + resources + "]";
 	}	
 }
