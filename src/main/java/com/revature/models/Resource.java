@@ -1,13 +1,18 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -28,6 +33,14 @@ public class Resource implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="subject_id")
 	private Subject subject;
+	
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name = "studyset_resources",
+			joinColumns = { @JoinColumn(name = "resource_id")},
+			inverseJoinColumns = { @JoinColumn(name = "studyset_id")})
+	private List<StudySet> studySet;
 	
 	
 	public Resource() {
@@ -64,8 +77,16 @@ public class Resource implements Serializable{
 	}
 
 
-	public void setSubjectId(Subject subject) {
+	public void setSubject(Subject subject) {
 		this.subject = subject;
+	}
+
+	public List<StudySet> getStudySet() {
+		return studySet;
+	}
+
+	public void setStudySet(List<StudySet> studySet) {
+		this.studySet = studySet;
 	}
 
 	@Override
@@ -73,6 +94,7 @@ public class Resource implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
+		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
@@ -89,6 +111,11 @@ public class Resource implements Serializable{
 		Resource other = (Resource) obj;
 		if (id != other.id)
 			return false;
+		if (studySet == null) {
+			if (other.studySet != null)
+				return false;
+		} else if (!studySet.equals(other.studySet))
+			return false;
 		if (subject == null) {
 			if (other.subject != null)
 				return false;
@@ -104,7 +131,7 @@ public class Resource implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Resource [id=" + id + ", url=" + url + ", subject=" + subject + "]";
+		return "Resource [id=" + id + ", url=" + url + ", subject=" + subject + ", studySet=" + studySet + "]";
 	}
 
 }

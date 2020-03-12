@@ -29,16 +29,13 @@ public class StudySet implements Serializable {
 	@Column(name="studyset_id")
 	private int id;
 	private String name;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
-	private User user;
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
-			name = "study_set_resources",
+			name = "studyset_user",
 			joinColumns = { @JoinColumn(name = "studyset_id")},
-			inverseJoinColumns = { @JoinColumn(name = "resource_id")})
-	private List<Resource> resources = new ArrayList<Resource>();
+			inverseJoinColumns = { @JoinColumn(name = "user_id")})
+	private List<User> user;
 	
 	public StudySet() {
 		super();
@@ -49,7 +46,7 @@ public class StudySet implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
-		this.user = user;
+		this.user.add(user);
 	}
 
 	public int getId() {
@@ -68,20 +65,12 @@ public class StudySet implements Serializable {
 		this.name = name;
 	}
 
-	public User getUser() {
+	public List<User> getUser() {
 		return user;
 	}
 
-	public void setUserId(User user) {
+	public void setUserId(List<User> user) {
 		this.user = user;
-	}
-	
-	public List<Resource> getResourceList() {
-		return resources;
-	}
-	
-	public void setResourceList(List<Resource> resources) {
-		this.resources = resources;
 	}
 
 	@Override
@@ -108,9 +97,7 @@ public class StudySet implements Serializable {
 		if (name == null) {
 			if (other.name != null)
 				return false;
-		} else if (!name.equals(other.name)) {
-			return false;
-		} else if (!resources.equals(other.resources))
+		} else if (!name.equals(other.name))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -122,6 +109,15 @@ public class StudySet implements Serializable {
 
 	@Override
 	public String toString() {
-		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + ", resources=" + resources + "]";
-	}	
+		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + "]";
+	}
+	
+//	public List<Resource> getResourceList() {
+//		return resources;
+//	}
+//	
+//	public void setResourceList(List<Resource> resources) {
+//		this.resources = resources;
+//	}
+	
 }

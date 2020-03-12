@@ -20,6 +20,7 @@
 		<mapping class="com.revature.models.Subject"/>
 		<mapping class="com.revature.models.Resource"/>
 		<mapping class="com.revature.models.StudySet"/>
+		<mapping class="com.revature.models.Blacklist"/>
 	
 	</session-factory>
 
