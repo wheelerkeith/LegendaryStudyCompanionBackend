@@ -41,9 +41,8 @@ public class Blacklist implements Serializable{
 		super();
 	}
 	
-	public Blacklist(Resource resource, Subject subject) {
-		this.resource = resource;
-		this.subject = subject;
+	public Blacklist(BlacklistCompositeKey compKey) {
+		this.compKey = compKey;
 	}
 	
 	public Blacklist(BlacklistCompositeKey compKey, Resource resource, Subject subject) {

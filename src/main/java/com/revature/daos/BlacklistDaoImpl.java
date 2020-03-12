@@ -2,8 +2,7 @@ package com.revature.daos;
 
 import java.util.List;
 
-import javax.persistence.RollbackException;
-
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,6 +29,7 @@ public class BlacklistDaoImpl implements BlacklistDao{
 		sub.setId(subject_id);
 		
 		Blacklist b = new Blacklist(compkey, r, sub);
+		b.setStatus("pending");
 		
 		try (Session s = HibernateUtil.getSession()) {
 			Transaction tx = s.beginTransaction();
@@ -62,8 +62,17 @@ public class BlacklistDaoImpl implements BlacklistDao{
 	
 	@Override
 	public List<Blacklist> getAllFromBlacklist() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Blacklist> blacklistList = null;
+		
+		try (Session s = HibernateUtil.getSession()) {
+			String hql = "from Blacklist";
+			
+			Query<Blacklist> q = s.createQuery(hql, Blacklist.class);
+			blacklistList = q.list();
+		}
+		
+		return blacklistList;
 	}
 	
 	
@@ -71,8 +80,16 @@ public class BlacklistDaoImpl implements BlacklistDao{
 
 	@Override
 	public int updateBlacklistEntry(Blacklist b) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int didItUpdate = 0;
+		
+		try (Session s = HibernateUtil.getSession()) {
+			Transaction tx = s.beginTransaction();
+			s.update(b);
+			tx.commit();
+			didItUpdate = 1;
+		}
+		return didItUpdate;
 	}
 	
 	
@@ -80,9 +97,16 @@ public class BlacklistDaoImpl implements BlacklistDao{
 
 	@Override
 	public int removeBlacklistEntry(Blacklist b) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int didItDelete = 0;
+		
+		try (Session s = HibernateUtil.getSession()) {
+			Transaction tx = s.beginTransaction();
+			s.delete(b);
+			tx.commit();
+			didItDelete = 1;
+		}
+		return didItDelete;
 	}
-	
 
 }

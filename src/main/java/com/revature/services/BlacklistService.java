@@ -28,10 +28,17 @@ public class BlacklistService {
 		return bd.getAllFromBlacklist();
 	}
 	
-	// update blacklist entry
-	public int updateBlacklistEntry(Blacklist b) {
+	// approve blacklist entry
+	public int approveBlacklistEntry(Blacklist b) {
+		b.setStatus("approved");
 		return bd.updateBlacklistEntry(b);
 	}
+	
+	// deny blacklist entry
+		public int denyBlacklistEntry(Blacklist b) {
+			b.setStatus("denied");
+			return bd.updateBlacklistEntry(b);
+		}
 	
 	// remove blacklist entry
 	public int removeBlacklistEntry(Blacklist b) {
