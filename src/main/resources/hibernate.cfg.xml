@@ -13,13 +13,14 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<!-- we can use: validate, update, create, create-drop -->
 		<property name="hibernate.hbm2ddl.auto">create</property>
-		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.show_sql">false</property>
 		
 		<!-- mapping tags can reference resources (hbm files) or classes (with annotations) -->
 		<mapping class="com.revature.models.User"/>
 		<mapping class="com.revature.models.Subject"/>
 		<mapping class="com.revature.models.Resource"/>
 		<mapping class="com.revature.models.StudySet"/>
+		<mapping class="com.revature.models.Blacklist"/>
 	
 	</session-factory>
 
