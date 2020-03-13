@@ -10,7 +10,11 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class Blacklist implements Serializable{
 
 	/**
@@ -18,9 +22,11 @@ public class Blacklist implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Autowired
 	@EmbeddedId
 	BlacklistCompositeKey compKey;
 	
+	@Autowired
 	@MapsId("resource")
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumns({
@@ -28,6 +34,7 @@ public class Blacklist implements Serializable{
 	})
 	Resource resource;
 	
+	@Autowired
 	@MapsId("subject")
 	@JoinColumns({
 		@JoinColumn(name="subject_id", referencedColumnName="subject_id")

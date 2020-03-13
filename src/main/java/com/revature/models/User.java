@@ -13,9 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.JoinColumn;
 
 @Entity
+@Component
 @Table(name="app_user")
 public class User implements Serializable {
 	
@@ -39,6 +44,7 @@ public class User implements Serializable {
 	private String fullName;
 	private int role;
 	
+	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name="user_liked_resource",

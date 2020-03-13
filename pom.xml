@@ -19,8 +19,28 @@
 	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	<sonar.login>a3bacf27e1b178e92b3481bf2501eb1debf6e04f</sonar.login>
     </properties>
+    
+      <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>io.spring.platform</groupId>
+  			<artifactId>platform-bom</artifactId>
+  			<version>2.0.3.RELEASE</version>
+  			<type>pom</type>
+  			<scope>import</scope>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 
     <dependencies>
+	    <dependency>
+	  		<groupId>org.springframework</groupId>
+	  		<artifactId>spring-context</artifactId>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>commons-logging</groupId>
+	  		<artifactId>commons-logging</artifactId>
+	  	</dependency>
     	<dependency>
     		<groupId>org.postgresql</groupId>
     		<artifactId>postgresql</artifactId>

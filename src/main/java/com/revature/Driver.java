@@ -1,10 +1,13 @@
 package com.revature;
 
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.revature.models.Blacklist;
 import com.revature.models.BlacklistCompositeKey;
 import com.revature.models.Resource;
+import com.revature.models.StudySet;
 import com.revature.models.Subject;
 import com.revature.models.User;
 import com.revature.services.BlacklistService;
@@ -24,6 +27,25 @@ public class Driver {
 	
 
 	public static void main(String[] args) {
+
+		
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+		
+		Subject subject = (Subject) ac.getBean("subject");
+		System.out.println(subject);
+		
+		StudySet studySet = (StudySet) ac.getBean("studySet");
+		System.out.println(studySet);
+		
+		Resource resource = (Resource) ac.getBean("resource");
+		System.out.println(resource);
+		
+		User user = (User) ac.getBean("user");
+		System.out.println(user);
+		
+		Blacklist blacklist = (Blacklist) ac.getBean("blacklist");
+		System.out.println(blacklist);
+		
 		
 //		Session s = HibernateUtil.getSession();
 //		
@@ -31,12 +53,12 @@ public class Driver {
 //		
 //		
 //		
-//		User u = new User("jortiz", "pass", "jortiz@mail.com", "Josue Ortiz", 1);
-//		us.addUser(u);
-//		User u2 = new User("jortiz2", "pass2", "jortiz2@mail.com", "Josue Ortiz", 1);
-//		us.addUser(u2);
-//		User u3 = new User("lolap", "1234", "lolap@mail.com", "Lola Palmer", 0);
-//		us.addUser(u3);
+		User u = new User("jortiz", "pass", "jortiz@mail.com", "Josue Ortiz", 1);
+		us.addUser(u);
+		User u2 = new User("jortiz2", "pass2", "jortiz2@mail.com", "Josue Ortiz", 1);
+		us.addUser(u2);
+		User u3 = new User("lolap", "1234", "lolap@mail.com", "Lola Palmer", 0);
+		us.addUser(u3);
 //		
 //		User u4 = new User();
 //		u4.setUserName("jortiz2");
@@ -44,7 +66,7 @@ public class Driver {
 //		
 //		System.out.println("VALIDATING: " + us.validateUser(u4));
 //		
-//		System.out.println(("GET BY ID: " + us.getUserById(3)));
+		System.out.println(("GET BY ID: " + us.getUserById(3)));
 //		
 //		System.out.println("LIST ALL USERS: " + us.getAllUsers());
 //		

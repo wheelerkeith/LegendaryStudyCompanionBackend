@@ -4,7 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
+import org.springframework.stereotype.Component;
+
 @Embeddable
+@Component
 public class BlacklistCompositeKey implements Serializable{
 
 	/**

@@ -15,7 +15,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class Resource implements Serializable{
 
 	/**
@@ -30,11 +34,12 @@ public class Resource implements Serializable{
 	
 	private String url;
 	
+	@Autowired
 	@ManyToOne
 	@JoinColumn(name="subject_id")
 	private Subject subject;
 	
-	
+	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "studyset_resources",
