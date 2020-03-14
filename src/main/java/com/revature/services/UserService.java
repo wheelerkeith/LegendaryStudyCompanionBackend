@@ -11,8 +11,8 @@ import com.revature.models.User;
 
 public class UserService {
 	
-	ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
-	UserDao userDao = (UserDao) ac.getBean("userDaoImpl");	
+	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+	private static UserDao userDao = (UserDao) ac.getBean("userDaoImpl");	
 	
 	// add new user
 	public int addUser(User u) {

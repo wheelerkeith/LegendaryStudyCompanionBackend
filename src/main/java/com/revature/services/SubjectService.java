@@ -9,8 +9,8 @@ import com.revature.models.Subject;
 
 public class SubjectService {
 	
-	ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
-	SubjectDao subjectDao = (SubjectDao) ac.getBean("subjectDaoImpl");
+	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+	private static SubjectDao subjectDao = (SubjectDao) ac.getBean("subjectDaoImpl");
 	
 	// add new subject
 	public int addSubject(Subject s) {

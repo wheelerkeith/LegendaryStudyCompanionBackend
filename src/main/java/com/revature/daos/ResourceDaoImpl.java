@@ -2,121 +2,87 @@ package com.revature.daos;
 
 import java.util.List;
 
-import javax.persistence.RollbackException;
 
-import org.hibernate.query.Query;
+import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
 
 import com.revature.models.Resource;
-import com.revature.util.HibernateUtil;
 
+@Repository
 public class ResourceDaoImpl implements ResourceDao{
+	
+	@Autowired
+	SessionFactory sf;
 
-	
 	// add resource
-	
+	@Transactional
 	@Override
 	public int addResource(Resource r) {
-			
-		try (Session s = HibernateUtil.getSession()) {	
-			Transaction tx = s.beginTransaction();
-			int pk = (int) s.save(r);
-			
-			tx.commit();
-			return pk;
-		}
+		Session s = sf.getCurrentSession();
+		int pk = (int) s.save(r);
+		return pk;
 	}
 	
 	
 	// get resource by id
-
+	@Transactional
 	@Override
 	public Resource getResourceById(int id) {
-		
-		Resource r = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			r = s.get(Resource.class, id);
-		}
-		
-		return r;
+		Session s = sf.getCurrentSession();
+		Resource resource = (Resource) s.get(Resource.class, id);
+		return resource;
 	}
 	
 	
 	// get resource by url
-	
+	// maybe I want to get a list here instead?
+	@Transactional
 	@Override
 	public Resource getResourceByUrl(String url) {
-
-		Resource r = null;
+		Session s = sf.getCurrentSession();
+		String hql = "from Resource where url = :urlVar";
+		Query resourceQuery = s.createQuery(hql);
+		resourceQuery.setParameter("urlVar", url);
 		
-		try (Session s = HibernateUtil.getSession()) {
-			String hql = "from Resource where url = :urlVar";
-			Query<Resource> resourceQuery = s.createQuery(hql, Resource.class);
-			resourceQuery.setParameter("urlVar", url);
-			r = resourceQuery.getSingleResult();
-		}
-		
+		Resource r = (Resource) resourceQuery.uniqueResult();
 		return r;
 	}
 	
 	
 	// get all resources
-
+	@Transactional
 	@Override
 	public List<Resource> getAllResources() {
-		
-		List<Resource> resourceList = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			String hql = "from Resource";
-			
-			Query<Resource> q = s.createQuery(hql, Resource.class);
-			resourceList = q.list();
-		}
-		return resourceList;
+		Session s = sf.getCurrentSession();
+		List<Resource> resources = s.createQuery("from Resource").list();
+		return resources;
 	}
 	
 	
 	// update resource
-
+	@Transactional
 	@Override
 	public int updateResource(Resource r) {
-		
 		int didItCommit = 0;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.update(r);
-			tx.commit();
-			didItCommit = 1;
-		} catch (RollbackException e) {
-			e.printStackTrace();
-			System.out.println("commit from updateResource failed");
-			didItCommit = 0;
-		}
+		Session s = sf.getCurrentSession();
+		s.update(r);
+		didItCommit = 1;
 		return didItCommit;
 	}
 	
 	
 	// remove resource
-
+	@Transactional
 	@Override
 	public int removeResource(Resource r) {
-		
 		int didItDelete = 0;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.delete(r);
-			tx.commit();
-			didItDelete = 1;
-		} catch (RollbackException e) {
-			e.printStackTrace();
-			System.out.println("commit from removeResource failed");
-			didItDelete = 0;
-		}
+		Session s = sf.getCurrentSession();
+		s.delete(r);
+		didItDelete = 1;
 		return didItDelete;
 	}
 

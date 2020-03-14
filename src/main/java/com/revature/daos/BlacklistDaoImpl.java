@@ -2,110 +2,86 @@ package com.revature.daos;
 
 import java.util.List;
 
-import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
 
 import com.revature.models.Blacklist;
 import com.revature.models.BlacklistCompositeKey;
 import com.revature.models.Resource;
 import com.revature.models.Subject;
-import com.revature.util.HibernateUtil;
 
+@Repository
 public class BlacklistDaoImpl implements BlacklistDao{
 
+	@Autowired
+	SessionFactory sf;
 	
 	// add entry to blacklist
-	
+	@Transactional
 	@Override
 	public BlacklistCompositeKey addToBlacklist(int resource_id, int subject_id) {
-		
-		BlacklistCompositeKey compkey = new BlacklistCompositeKey(resource_id, subject_id);
+		BlacklistCompositeKey compKey = new BlacklistCompositeKey(resource_id, subject_id);
 		
 		Resource r = new Resource();
-		r.setId(resource_id);
+		r.setResourceId(resource_id);
 		
 		Subject sub = new Subject();
 		sub.setId(subject_id);
 		
-		Blacklist b = new Blacklist(compkey, r, sub);
+		Blacklist b = new Blacklist(compKey, r, sub);
 		b.setStatus("pending");
 		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			BlacklistCompositeKey bCKey = (BlacklistCompositeKey) s.save(b);
-						
-			tx.commit();
-			
-			return bCKey;
-		}
+		Session s = sf.getCurrentSession();
+		BlacklistCompositeKey blacklistCompositeKey = (BlacklistCompositeKey) s.save(b);
+		return blacklistCompositeKey;
 	}
 
 	
 	// get a blacklist entry by composite id
-	
+	@Transactional
 	@Override
 	public Blacklist getBlacklistByIds(int resource_id, int subject_id) {
+		BlacklistCompositeKey compKey = new BlacklistCompositeKey(resource_id, subject_id);
 		
-		BlacklistCompositeKey compkey = new BlacklistCompositeKey(resource_id, subject_id);
-		
-		Blacklist b = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			b = s.get(Blacklist.class, compkey);
-		}
-		return b;
+		Session s = sf.getCurrentSession();
+		Blacklist blacklist = (Blacklist) s.get(Blacklist.class, compKey);
+		return blacklist;
 	}
 
 	
 	// get all entries from the blacklist
-	
+	@Transactional
 	@Override
 	public List<Blacklist> getAllFromBlacklist() {
-		
-		List<Blacklist> blacklistList = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			String hql = "from Blacklist";
-			
-			Query<Blacklist> q = s.createQuery(hql, Blacklist.class);
-			blacklistList = q.list();
-		}
-		
-		return blacklistList;
+		Session s = sf.getCurrentSession();
+		return s.createQuery("from Blacklist").list();
 	}
 	
 	
 	// update an entry in the blacklist
-
+	@Transactional
 	@Override
 	public int updateBlacklistEntry(Blacklist b) {
-		
 		int didItUpdate = 0;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.update(b);
-			tx.commit();
-			didItUpdate = 1;
-		}
+		Session s = sf.getCurrentSession();
+		s.update(b);
+		didItUpdate = 1;
 		return didItUpdate;
 	}
 	
 	
 	// remove an entry from the blacklist
-
+	@Transactional
 	@Override
 	public int removeBlacklistEntry(Blacklist b) {
-		
 		int didItDelete = 0;
 		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.delete(b);
-			tx.commit();
-			didItDelete = 1;
-		}
+		Session s = sf.getCurrentSession();
+		s.delete(b);
+		didItDelete = 1;
 		return didItDelete;
 	}
 

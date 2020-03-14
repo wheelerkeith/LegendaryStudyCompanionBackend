@@ -1,7 +1,6 @@
 package com.revature.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,7 +29,7 @@ public class Resource implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="resource_id")
-	private int id;
+	private int resourceId;
 	
 	private String url;
 	
@@ -57,13 +56,13 @@ public class Resource implements Serializable{
 		this.subject = subject;
 	}
 
-	public int getId() {
-		return id;
+	public int getResourceId() {
+		return resourceId;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setResourceId(int resourceId) {
+		this.resourceId = resourceId;
 	}
 
 
@@ -98,7 +97,7 @@ public class Resource implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + resourceId;
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
@@ -114,7 +113,7 @@ public class Resource implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
-		if (id != other.id)
+		if (resourceId != other.resourceId)
 			return false;
 		if (studySet == null) {
 			if (other.studySet != null)
@@ -136,7 +135,7 @@ public class Resource implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Resource [id=" + id + ", url=" + url + ", subject=" + subject + ", studySet=" + studySet + "]";
+		return "Resource [id=" + resourceId + ", url=" + url + ", subject=" + subject + ", studySet=" + studySet + "]";
 	}
 
 }
