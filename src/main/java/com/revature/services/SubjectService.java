@@ -2,38 +2,39 @@ package com.revature.services;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.revature.daos.SubjectDao;
-import com.revature.daos.SubjectDaoImpl;
 import com.revature.models.Subject;
 
 public class SubjectService {
 	
-	private static SubjectDao sd = new SubjectDaoImpl();
+	ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+	SubjectDao subjectDao = (SubjectDao) ac.getBean("subjectDaoImpl");
 	
 	// add new subject
 	public int addSubject(Subject s) {
-		return sd.addSubject(s);
+		return subjectDao.addSubject(s);
 	}
 	
 	// get subject by id
 	public Subject getSubjectById(int id) {
-		return sd.getSubjectById(id);
+		return subjectDao.getSubjectById(id);
 	}
 	
 	// get all subjects
 	public List<Subject> getAllSubjects() {
-		return sd.getAllSubjects();
+		return subjectDao.getAllSubjects();
 	}
 	
 	// update subject name
 	public int updateSubject(Subject s) {
-		return sd.updateSubject(s);
+		return subjectDao.updateSubject(s);
 	}
 	
 	// remove subject
 	public int removeSubject(Subject s) {
-		return sd.removeSubject(s);
+		return subjectDao.removeSubject(s);
 	}
-	
 
 }

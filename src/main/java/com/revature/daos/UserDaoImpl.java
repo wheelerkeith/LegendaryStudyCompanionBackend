@@ -5,33 +5,35 @@ import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.RollbackException;
 
-import org.hibernate.query.Query;
+import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.revature.models.User;
 import com.revature.util.HibernateUtil;
 
+@Repository
 public class UserDaoImpl implements UserDao{
 	
+	@Autowired
+	private SessionFactory sf;
 	
 	// add new user
-
+	@Transactional
 	@Override
 	public int addUser(User u) {
-		
-		try(Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			int pk = (int) s.save(u);
-			
-			tx.commit();
-			return pk;
-		}
+		Session s = sf.getCurrentSession();
+		int pk = (int) s.save(u);
+		return pk;
 	}
 	
 	
 	// validate user with log in info
-
+	@Transactional
 	@Override
 	public User validateUser(User u) {
 		
@@ -43,99 +45,71 @@ public class UserDaoImpl implements UserDao{
 			u.setEmail("");
 		}
 		
-		try(Session s = HibernateUtil.getSession()) {
-			String hql = "from User where (username = :userNameVar or email = :emailVar) and (password = :passVar)";
-			Query<User> userQuery = s.createQuery(hql, User.class);
-			userQuery.setParameter("userNameVar", u.getUserName());
-			userQuery.setParameter("emailVar", u.getEmail());
-			userQuery.setParameter("passVar", u.getPassword());
-			
-			User u2 = userQuery.getSingleResult();
-			
-			return u2;
-		} catch (NoResultException e) {
-			e.printStackTrace();
+		Session s = sf.getCurrentSession();
+		String hql = "from User where (user_name = :userNameVar or email = :emailVar) and (password = :passVar)";
+		Query userQuery = s.createQuery(hql);
+		userQuery.setParameter("userNameVar", u.getUserName());
+		userQuery.setParameter("emailVar", u.getEmail());
+		userQuery.setParameter("passVar", u.getPassword());
+		
+		List<User> u2 = userQuery.list();
+		
+		if (u2.isEmpty()) {
+			System.out.println("MESSAGE FROM UserDaoImpl.validateUser: no users found in db - add logic to handle this");
+			return null;
+		} else if (u2.size() > 1) {
+			System.out.println("MESSAGE FROM UserDaoImpl.validateUser: more than one user found with credentials, something is not right");
 		}
 		
-		return null;
-
+		return u2.get(0);
 	}
 	
 	
 	// get user by id
-
+	@Transactional
 	@Override
 	public User getUserById(int id) {
-		
-		User u = null;
-		
-		try(Session s = HibernateUtil.getSession()) {
-			u = s.get(User.class, id);
-		}
-		
-		return u;
+		Session s = sf.getCurrentSession();
+		User user = (User) s.get(User.class, id);
+		return user;
 	}
 	
 	
 	// get all users
-
+	@Transactional
 	@Override
 	public List<User> getAllUsers() {
-		
-		List<User> userList = null;
-		
-		try(Session s = HibernateUtil.getSession()) {
-			String hql = "from User";
-			Query<User> q = s.createQuery(hql, User.class);
-			userList = q.list();
-		}
-		
-		return userList;
+		Session s = sf.getCurrentSession();
+		List<User> users = s.createQuery("from User").list();
+		return users;
 	}
 	
 	
 	// update user information
-
+	@Transactional
 	@Override
 	public int updateUser(User u) {
-		
 		int didItCommit = 0;
 		
-		try(Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.update(u);
-			tx.commit();
-			didItCommit = 1;
-		} catch (RollbackException e) {
-			e.printStackTrace();
-			System.out.println("commit from updateUser failed");
-			didItCommit = 0;
-		}
+		Session s = sf.getCurrentSession();
+		s.update(u);
+		didItCommit = 1;
 		
 		return didItCommit;
 	}
 	
 	
 	// remove user
-
+	@Transactional
 	@Override
 	public int removeUser(User u) {
-		
 		int didItDelete = 0;
 		
-		try(Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.delete(u);
-			tx.commit();
-			didItDelete = 1;
-		} catch (RollbackException e) {
-			e.printStackTrace();
-			System.out.println("commit from removeUser failed");
-			didItDelete = 0;
-		}
+		Session s = sf.getCurrentSession();
+		s.delete(u);
+		didItDelete = 1;
 		
 		return didItDelete;
-		
 	}
 
 }

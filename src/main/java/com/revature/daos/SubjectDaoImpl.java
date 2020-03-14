@@ -2,103 +2,77 @@ package com.revature.daos;
 
 import java.util.List;
 
-import javax.persistence.RollbackException;
+import javax.transaction.Transactional;
 
-import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
 
 import com.revature.models.Subject;
-import com.revature.util.HibernateUtil;
 
+@Repository
 public class SubjectDaoImpl implements SubjectDao{
 
+	@Autowired
+	private SessionFactory sf;
 	
 	// add subject
-	
+	@Transactional
 	@Override
 	public int addSubject(Subject sub) {
-		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			int pk = (int) s.save(sub);
-			
-			tx.commit();
-			return pk;
-		}
+		Session s = sf.getCurrentSession();
+		int pk = (int) s.save(sub);
+		return pk;	
 	}
 	
 	
 	// get subject by id
-
+	@Transactional
 	@Override
 	public Subject getSubjectById(int id) {
+		Session s = sf.getCurrentSession();
+		Subject subject = (Subject) s.get(Subject.class, id);
 		
-		Subject sub = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			sub = s.get(Subject.class, id);
-		}
-		
-		return sub;
+		return subject;
 	}
 	
 	
 	// get all subjects
-
+	@Transactional
 	@Override
 	public List<Subject> getAllSubjects() {
-		
-		List<Subject> subjectList = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			String hql = "from Subject";
-			Query<Subject> q = s.createQuery(hql, Subject.class);
-			subjectList = q.list();
-		}
-		
-		return subjectList;
+		Session s = sf.getCurrentSession();
+		List<Subject> subjects = s.createQuery("from Subject").list();
+		return subjects;
 	}
 	
 	
 	// update subject name
-
+	@Transactional
 	@Override
 	public int updateSubject(Subject sub) {
-		
 		int didItCommit = 0;
 		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.update(sub);
-			tx.commit();
-			didItCommit = 1;
-		} catch (RollbackException e) {
-			e.printStackTrace();
-			System.out.println("commit from updateSubject failed");
-			didItCommit = 0;
-		}
+		Session s = sf.getCurrentSession();
+		s.update(sub);
+		didItCommit = 1;
+		
 		return didItCommit;
 	}
 	
 	
 	// remove subject
-
+	@Transactional
 	@Override
 	public int removeSubject(Subject sub) {
 		
 		int didItDelete = 0;
 		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = s.beginTransaction();
-			s.delete(sub);
-			tx.commit();
-			didItDelete = 1;
-		} catch (RollbackException e) {
-			e.printStackTrace();
-			System.out.println("commit from removeSubject failed");
-			didItDelete = 0;
-		}
+		Session s = sf.getCurrentSession();
+		s.delete(sub);
+		didItDelete = 1;
+		
 		return didItDelete;
 	}
 

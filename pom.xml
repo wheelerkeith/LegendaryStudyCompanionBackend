@@ -38,9 +38,23 @@
 	  		<artifactId>spring-context</artifactId>
 	  	</dependency>
 	  	<dependency>
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-orm</artifactId>
+	  	</dependency>
+	  	<dependency>
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-webmvc</artifactId>
+  			<version>4.3.3.RELEASE</version>
+  		</dependency>
+	  	<dependency>
 	  		<groupId>commons-logging</groupId>
 	  		<artifactId>commons-logging</artifactId>
 	  	</dependency>
+	  	<dependency>
+  			<groupId>commons-dbcp</groupId>
+  			<artifactId>commons-dbcp</artifactId>
+  			<version>1.4</version>
+  		</dependency>
     	<dependency>
     		<groupId>org.postgresql</groupId>
     		<artifactId>postgresql</artifactId>
@@ -49,8 +63,13 @@
     	<dependency>
     		<groupId>org.hibernate</groupId>
     		<artifactId>hibernate-core</artifactId>
-    		<version>5.3.7.Final</version>
+    		<version>4.3.11.Final</version>
     	</dependency>
+  		<dependency>
+  			<groupId>org.hibernate</groupId>
+  			<artifactId>hibernate-entitymanager</artifactId>
+  			<version>4.3.11.Final</version>
+  		</dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
