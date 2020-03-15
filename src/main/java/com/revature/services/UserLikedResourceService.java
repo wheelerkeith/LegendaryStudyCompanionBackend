@@ -1,15 +1,18 @@
 package com.revature.services;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.revature.daos.UserLikedResourceDao;
-import com.revature.daos.UserLikedResourceDaoImpl;
 
 public class UserLikedResourceService {
 	
-	private static UserLikedResourceDao ulrd = new UserLikedResourceDaoImpl();
+	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+	private static UserLikedResourceDao userLikedResourceDao = (UserLikedResourceDao) ac.getBean("userLikedResourceDaoImpl");
 	
 	// get resource rating (count)
 	public int getResourceRating(int id) {
-		return ulrd.getResourceRating(id);
+		return userLikedResourceDao.getResourceRating(id);
 	}
 
 }

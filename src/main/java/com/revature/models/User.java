@@ -13,9 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.JoinColumn;
 
 @Entity
+@Component
 @Table(name="app_user")
 public class User implements Serializable {
 	
@@ -27,7 +32,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private int id;
+	private int userId;
 	
 	@Column(name="user_name", unique=true, nullable=false)
 	private String userName;
@@ -39,6 +44,7 @@ public class User implements Serializable {
 	private String fullName;
 	private int role;
 	
+	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name="user_liked_resource",
@@ -60,12 +66,12 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
-	public int getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUserName() {
@@ -122,7 +128,7 @@ public class User implements Serializable {
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
-		result = prime * result + id;
+		result = prime * result + userId;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((resourceList == null) ? 0 : resourceList.hashCode());
 		result = prime * result + role;
@@ -149,7 +155,7 @@ public class User implements Serializable {
 				return false;
 		} else if (!fullName.equals(other.fullName))
 			return false;
-		if (id != other.id)
+		if (userId != other.userId)
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -173,7 +179,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
+		return "User [id=" + userId + ", userName=" + userName + ", password=" + password + ", email=" + email
 				+ ", fullName=" + fullName + ", role=" + role + ", resourceList=" + resourceList + "]";
 	}
 

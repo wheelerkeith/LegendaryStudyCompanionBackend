@@ -16,7 +16,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class StudySet implements Serializable {
 
 	/**
@@ -29,6 +32,7 @@ public class StudySet implements Serializable {
 	@Column(name="studyset_id")
 	private int id;
 	private String name;
+	
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(

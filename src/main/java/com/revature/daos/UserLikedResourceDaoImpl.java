@@ -1,37 +1,31 @@
 package com.revature.daos;
 
-import org.hibernate.query.Query;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
-import com.revature.util.HibernateUtil;
-
+@Repository
 public class UserLikedResourceDaoImpl implements UserLikedResourceDao{
 
+	@Autowired
+	SessionFactory sf;
 	
-	// get resource rating (count) - probably good idea to convert to criteria query
-	
+	// get resource rating (count) - probably good idea to convert to criteria query ??
+	@Transactional
 	@Override
 	public int getResourceRating(int id) {
+		String hql = "select count(u.userId) from User u join u.resourceList rl  where rl.resourceId = :resourceIdVar";
 		
-		List<BigInteger> rating = new ArrayList<>();
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(hql);
+		query.setParameter("resourceIdVar", id);
 		
-		try (Session s = HibernateUtil.getSession()) {
-			String sql = "select count(user_id) from user_liked_resource where resource_id = ?";
-			Query q = s.createNativeQuery(sql);
-			
-			q.setParameter(1, id);
-			
-			rating = q.getResultList();
-			
-		}
-		
-		
-		return rating.get(0).intValue();
+		Long rating = (Long) query.uniqueResult();
+		return rating.intValue();
 	}
 
 }
