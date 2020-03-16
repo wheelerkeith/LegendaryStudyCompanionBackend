@@ -43,15 +43,26 @@ public class StudySet implements Serializable {
 	
 	public StudySet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
+	
+	public StudySet(String name, User user) {
+		this.name = name;
+		
+		List<User> newUserList = new ArrayList<>();
+		newUserList.add(user);
+		
+		this.user = newUserList;
+		
+	}
+	
 	public StudySet(int id, String name, User user) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.user.add(user);
 	}
+	
 
 	public int getId() {
 		return id;

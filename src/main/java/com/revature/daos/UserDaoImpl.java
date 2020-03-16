@@ -14,7 +14,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.revature.models.User;
-import com.revature.util.HibernateUtil;
 
 @Repository
 public class UserDaoImpl implements UserDao{
