@@ -23,18 +23,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	@ResponseBody
-	public List<User> getAllUsers() {
-		return userService.getAllUsers();
-	}
-	
-	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	@ResponseBody
-	public User getUserById(@PathVariable("id")int id) {
-		return userService.getUserById(id);
-	}
-	
+	// POST - add user. expects to receive data in JSON (/user)
 	// looking to receive JSON like this:
 	// {"userName":"gracet","password":"987","email":"gracet@mail.com","fullName":"Grace Trueman","role":1}
 	@RequestMapping(method=RequestMethod.POST)
@@ -44,6 +33,22 @@ public class UserController {
 		return new ResponseEntity<>("added user "+u.getFullName(),HttpStatus.CREATED);
 	}
 	
+	// GET - get all users (/user)
+	// get all usrs
+	@RequestMapping(method=RequestMethod.GET)
+	@ResponseBody
+	public List<User> getAllUsers() {
+		return userService.getAllUsers();
+	}
+	
+	// GET - get user by id (/user/id)
+	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	@ResponseBody
+	public User getUserById(@PathVariable("id")int id) {
+		return userService.getUserById(id);
+	}
+
+	// PUT - update user. expects to recieve update user in JSON (/user/id)
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
 	@ResponseBody
 	public ResponseEntity<User> updateUser(@PathVariable("id")int id, @RequestBody User user) {
@@ -52,12 +57,11 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	// DELETE - delete user from db by id (/user/id)
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
 	@ResponseBody
 	public ResponseEntity<User> deleteUser(@PathVariable("id")int id) {
-		User u = new User();
-		u.setUserId(id);
-		userService.removeUser(u);
+		userService.removeUser(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

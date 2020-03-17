@@ -89,8 +89,8 @@ public class UserService {
 	}
 	
 	// remove user
-	public int removeUser(User u) {
-		return userDao.removeUser(u);
+	public int removeUser(int id) {
+		return userDao.removeUser(id);
 	}
 
 }
