@@ -12,6 +12,7 @@ import com.revature.models.Subject;
 import com.revature.models.User;
 import com.revature.services.BlacklistService;
 import com.revature.services.ResourceService;
+import com.revature.services.StudySetService;
 import com.revature.services.SubjectService;
 import com.revature.services.UserLikedResourceService;
 import com.revature.services.UserService;
@@ -23,6 +24,7 @@ public class Driver {
 	private static ResourceService rs = new ResourceService();
 	private static UserLikedResourceService ulrs = new UserLikedResourceService();
 	private static BlacklistService bls = new BlacklistService();
+	private static StudySetService sss = new StudySetService();
 	
 
 	public static void main(String[] args) {
@@ -196,7 +198,13 @@ public class Driver {
 //		bll.setCompKey(new BlacklistCompositeKey(5, 4));
 //		System.out.println("REMOVE BLACKLIST: did it delete: " + bls.removeBlacklistEntry(bll));
 //		System.out.println();
-		
+//		
+//		// testing out that I can create users and that their daos are behaving correctly
+//		System.out.println("-- Study Set Tests----------------------------------------------------------------------");
+//		
+//		sss.addStudySet(new StudySet("Intro to Java", u));
+//		sss.addStudySet(new StudySet("Resources for cooking Flan", u2));
+//		sss.addStudySet(new StudySet("Intro to C++", u));
 	}
 
 }

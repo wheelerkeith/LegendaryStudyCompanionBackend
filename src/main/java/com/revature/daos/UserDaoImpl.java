@@ -14,7 +14,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.revature.models.User;
-import com.revature.util.HibernateUtil;
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -100,13 +99,15 @@ public class UserDaoImpl implements UserDao{
 	
 	
 	// remove user
+	// https://www.codejava.net/frameworks/hibernate/hibernate-basics-3-ways-to-delete-an-entity-from-the-datastore
 	@Transactional
 	@Override
-	public int removeUser(User u) {
+	public int removeUser(int id) {
 		int didItDelete = 0;
 		
 		Session s = sf.getCurrentSession();
-		s.delete(u);
+		User user = (User) s.load(User.class, id);
+		s.delete(user);
 		didItDelete = 1;
 		
 		return didItDelete;

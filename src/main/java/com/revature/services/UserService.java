@@ -4,16 +4,23 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.revature.daos.UserDao;
 import com.revature.models.Resource;
 import com.revature.models.User;
 
+@Service
 public class UserService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 	private static UserDao userDao = (UserDao) ac.getBean("userDaoImpl");	
 	
+	public UserService() {
+		super();
+	}
+
+
 	// add new user
 	public int addUser(User u) {
 		return userDao.addUser(u);
@@ -82,8 +89,8 @@ public class UserService {
 	}
 	
 	// remove user
-	public int removeUser(User u) {
-		return userDao.removeUser(u);
+	public int removeUser(int id) {
+		return userDao.removeUser(id);
 	}
 
 }

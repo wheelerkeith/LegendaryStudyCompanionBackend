@@ -5,92 +5,79 @@ package com.revature.daos;
 
 import java.util.List;
 
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
 import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
-import javax.transaction.Transaction;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.revature.models.StudySet;
-import com.revature.util.HibernateUtil;
 
 /**
  * @author fitfour
  *
  */
+@Repository
 public class StudySetDaoImpl implements StudySetDao {
 	
 	@Autowired
 	private SessionFactory sf;
-
+	
+	// add study set
+	@Transactional
 	@Override
-	public int addStudySet(StudySet studySet) throws SecurityException, RollbackException, HeuristicMixedException, HeuristicRollbackException, SystemException {
+	public int addStudySet(StudySet studySet) {
 		Session s = sf.getCurrentSession();
 		int pk = (int) s.save(studySet);
-		return pk;
-		
-//		try (Session s = HibernateUtil.getSession()) {
-//			Transaction tx = (Transaction) s.beginTransaction();
-//			int pk = (int) s.save(studyset);
-//			tx.commit();
-//			return pk;
-//		}
+		return pk;		
 	}
 
+	// get study set by id
+	@Transactional
 	@Override
 	public StudySet getStudySetById(int id) {
-		StudySet studyset = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			studyset = s.get(StudySet.class, id);
-		}
-		
-		return studyset;
+		Session s = sf.getCurrentSession();
+		StudySet studySet = (StudySet) s.get(StudySet.class, id);
+		return studySet;
 	}
 
+	// get all study sets in a list
+	@Transactional
 	@Override
 	public List<StudySet> getAllStudySets() {
-		List<StudySet> studysets = null;
-		
-		try (Session s = HibernateUtil.getSession()) {
-			String hql = "from StudySet";
-			Query<StudySet> q = s.createQuery(hql, StudySet.class);
-			studysets = q.list();
-		}
-		
-		return studysets;
+		Session s = sf.getCurrentSession();
+		List<StudySet> studySets = s.createQuery("from StudySet").list();
+		return studySets;
 	}
 
+	// update study set
+	@Transactional
 	@Override
-	public int updateStudySet(StudySet studyset) throws SecurityException, RollbackException, HeuristicMixedException, HeuristicRollbackException, SystemException {
+	public int updateStudySet(StudySet studySet) {
 		int didItCommit = 0;
 		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = (Transaction) s.beginTransaction();
-			s.update(studyset);
-			tx.commit();
-			didItCommit = 1;
-		}
-		
+		Session s = sf.getCurrentSession();
+		s.saveOrUpdate(studySet);
+		didItCommit = 1;
+				
 		return didItCommit;
 	}
-
+	
+	// remove study set
+	@Transactional
 	@Override
-	public int removeStudySet(StudySet studyset) throws SecurityException, RollbackException, HeuristicMixedException, HeuristicRollbackException, SystemException {
+	public int removeStudySet(StudySet studySet) {
 		int didItDelete = 0;
 		
-		try (Session s = HibernateUtil.getSession()) {
-			Transaction tx = (Transaction) s.beginTransaction();
-			s.delete(studyset);
-			tx.commit();
-			didItDelete = 1;
-		}
+		Session s = sf.getCurrentSession();
+		s.delete(studySet);
+		didItDelete = 1;
 		
 		return didItDelete;
 	}
