@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	
+		<!-- credentials to connect to db  -->
+		<property name="hibernate.connection.url">jdbc:h2:mem:db;DB_CLOSE_DELAY=-1</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password"></property>
+	
+		<property name="hibernate.connection.driver_class">org.h2.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+		<!-- we can use: validate, update, create, create-drop -->
+		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+		<property name="hibernate.show_sql">false</property>
+		
+		<!-- mapping tags can reference resources (hbm files) or classes (with annotations) -->
+		<mapping class="com.revature.models.User"/>
+		<mapping class="com.revature.models.Subject"/>
+		<mapping class="com.revature.models.Resource"/>
+		<mapping class="com.revature.models.StudySet"/>
+		<mapping class="com.revature.models.Blacklist"/>
+	
+	</session-factory>
+
+</hibernate-configuration>
