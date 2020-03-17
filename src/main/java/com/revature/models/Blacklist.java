@@ -52,12 +52,16 @@ public class Blacklist implements Serializable{
 		this.compKey = compKey;
 	}
 	
+	public Blacklist(BlacklistCompositeKey compKey, String status) {
+		this.compKey = compKey;
+		this.status = status;
+	}
+	
 	public Blacklist(BlacklistCompositeKey compKey, Resource resource, Subject subject) {
 		this.compKey = compKey;
 		this.resource = resource;
 		this.subject = subject;
 	}
-	
 	
 	// setters and getters
 

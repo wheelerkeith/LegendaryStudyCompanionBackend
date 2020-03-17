@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.revature.daos.BlacklistDao;
 import com.revature.models.Blacklist;
 import com.revature.models.BlacklistCompositeKey;
 
+@Service
 public class BlacklistService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
@@ -30,21 +32,20 @@ public class BlacklistService {
 		return blacklistDao.getAllFromBlacklist();
 	}
 	
-	// approve blacklist entry
-	public int approveBlacklistEntry(Blacklist b) {
-		b.setStatus("approved");
-		return blacklistDao.updateBlacklistEntry(b);
+	// update blacklist entry
+	public int updateBlacklistEntry(int resourceId, int subjectId, String newStatus) {
+		return blacklistDao.updateBlacklistEntry(new Blacklist(new BlacklistCompositeKey(resourceId, subjectId), newStatus));
 	}
 	
-	// deny blacklist entry
-	public int denyBlacklistEntry(Blacklist b) {
-		b.setStatus("denied");
-		return blacklistDao.updateBlacklistEntry(b);
-	}
+//	// deny blacklist entry
+//	public int denyBlacklistEntry(Blacklist b) {
+//		b.setStatus("denied");
+//		return blacklistDao.updateBlacklistEntry(b);
+//	}
 	
 	// remove blacklist entry
-	public int removeBlacklistEntry(Blacklist b) {
-		return blacklistDao.removeBlacklistEntry(b);
+	public int removeBlacklistEntry(int resourceId, int subjectId) {
+		return blacklistDao.removeBlacklistEntry(new Blacklist(new BlacklistCompositeKey(resourceId, subjectId)));
 	}
 
 }
