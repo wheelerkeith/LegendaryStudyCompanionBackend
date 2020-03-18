@@ -44,6 +44,12 @@ public class User implements Serializable {
 	private String fullName;
 	private int role;
 	
+	// bideractional many-to-many (the join is in the studyset class)
+	// https://www.javaworld.com/article/3387643/java-persistence-with-jpa-and-hibernate-part-2-many-to-many-relationships.html
+	@Autowired
+	@ManyToMany(mappedBy = "user", fetch=FetchType.EAGER)
+	private List<StudySet> studySets;
+	
 	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
@@ -56,7 +62,6 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}
-
 	
 	public User(String userName, String password, String email, String fullName, int role) {
 		this.userName = userName;
@@ -113,6 +118,15 @@ public class User implements Serializable {
 	public void setRole(int role) {
 		this.role = role;
 	}
+	
+	public List<StudySet> getStudySets() {
+		return studySets;
+	}
+
+
+	public void setStudySets(List<StudySet> studySets) {
+		this.studySets = studySets;
+	}
 
 	public List<Resource> getResourceList() {
 		return resourceList;
@@ -122,19 +136,22 @@ public class User implements Serializable {
 		this.resourceList = resourceList;
 	}
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
-		result = prime * result + userId;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((resourceList == null) ? 0 : resourceList.hashCode());
 		result = prime * result + role;
+		result = prime * result + ((studySets == null) ? 0 : studySets.hashCode());
+		result = prime * result + userId;
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -155,8 +172,6 @@ public class User implements Serializable {
 				return false;
 		} else if (!fullName.equals(other.fullName))
 			return false;
-		if (userId != other.userId)
-			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -169,6 +184,13 @@ public class User implements Serializable {
 			return false;
 		if (role != other.role)
 			return false;
+		if (studySets == null) {
+			if (other.studySets != null)
+				return false;
+		} else if (!studySets.equals(other.studySets))
+			return false;
+		if (userId != other.userId)
+			return false;
 		if (userName == null) {
 			if (other.userName != null)
 				return false;
@@ -177,10 +199,12 @@ public class User implements Serializable {
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		return "User [id=" + userId + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", fullName=" + fullName + ", role=" + role + ", resourceList=" + resourceList + "]";
+		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", email=" + email
+				+ ", fullName=" + fullName + ", role=" + role + ", studySets=" + studySets + ", resourceList="
+				+ resourceList + "]";
 	}
 
 }

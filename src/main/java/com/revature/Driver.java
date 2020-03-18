@@ -80,9 +80,9 @@ public class Driver {
 //		System.out.println(("GET BY ID: " + us.getUserById(1)));
 //		System.out.println();
 //		
-//		System.out.println("REMOVE USER: did it delete: " + us.removeUser(u3));
-//		System.out.println("LIST ALL USERS: " + us.getAllUsers());
-//		System.out.println();
+////		System.out.println("REMOVE USER: did it delete: " + us.removeUser(u3));
+////		System.out.println("LIST ALL USERS: " + us.getAllUsers());
+////		System.out.println();
 //		
 //		
 //		// testing out that I can create subjects and that their daos are behaving correctly
@@ -189,14 +189,14 @@ public class Driver {
 //		System.out.println("ALL THE BLACKLISTS: " + bls.getAllFromBlacklist());
 //		System.out.println();
 //		
-//		System.out.println("APPROVE A BLACKLIST: did it update: " + bls.approveBlacklistEntry(new Blacklist(new BlacklistCompositeKey(4,4))));
+////		System.out.println("APPROVE A BLACKLIST: did it update: " + bls.approveBlacklistEntry(new Blacklist(new BlacklistCompositeKey(4,4))));
 //		System.out.println();
-//		System.out.println("DENY A BLACKLIST: did it update: " + bls.denyBlacklistEntry(new Blacklist(new BlacklistCompositeKey(2,3))));
+////		System.out.println("DENY A BLACKLIST: did it update: " + bls.denyBlacklistEntry(new Blacklist(new BlacklistCompositeKey(2,3))));
 //		System.out.println();
 //		
 //		Blacklist bll = new Blacklist();
 //		bll.setCompKey(new BlacklistCompositeKey(5, 4));
-//		System.out.println("REMOVE BLACKLIST: did it delete: " + bls.removeBlacklistEntry(bll));
+////		System.out.println("REMOVE BLACKLIST: did it delete: " + bls.removeBlacklistEntry(bll));
 //		System.out.println();
 //		
 //		// testing out that I can create users and that their daos are behaving correctly
