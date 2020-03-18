@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -33,7 +34,6 @@ public class StudySet implements Serializable {
 	private int id;
 	private String name;
 	
-	
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "studyset_user",
@@ -41,10 +41,13 @@ public class StudySet implements Serializable {
 			inverseJoinColumns = { @JoinColumn(name = "user_id")})
 	private List<User> user;
 	
+	@Autowired
+	@ManyToMany(mappedBy="studySet", fetch=FetchType.EAGER)
+	private List<Resource> resourceList;
+	
 	public StudySet() {
 		super();
 	}
-
 	
 	public StudySet(String name, User user) {
 		this.name = name;
@@ -81,11 +84,19 @@ public class StudySet implements Serializable {
 	}
 
 	public List<User> getUser() {
-		return user;
+		return null;
 	}
 
 	public void setUserId(List<User> user) {
 		this.user = user;
+	}
+	
+	public List<Resource> getResourceList() {
+		return resourceList;
+	}
+	
+	public void setResourceList(List<Resource> resourceList) {
+		this.resourceList = resourceList;
 	}
 
 	@Override
@@ -94,6 +105,7 @@ public class StudySet implements Serializable {
 		int result = 1;
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((resourceList == null) ? 0 : resourceList.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -114,6 +126,11 @@ public class StudySet implements Serializable {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (resourceList == null) {
+			if (other.resourceList != null)
+				return false;
+		} else if (!resourceList.equals(other.resourceList))
+			return false;
 		if (user == null) {
 			if (other.user != null)
 				return false;
@@ -124,15 +141,7 @@ public class StudySet implements Serializable {
 
 	@Override
 	public String toString() {
-		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + "]";
+		return "StudySet [id=" + id + ", name=" + name + ", user=" + user + ", resourceList=" + resourceList + "]";
 	}
-	
-//	public List<Resource> getResourceList() {
-//		return resources;
-//	}
-//	
-//	public void setResourceList(List<Resource> resources) {
-//		this.resources = resources;
-//	}
 	
 }
