@@ -86,7 +86,7 @@ public class Resource implements Serializable{
 	}
 
 	public List<StudySet> getStudySet() {
-		return studySet;
+		return null;
 	}
 
 	public void setStudySet(List<StudySet> studySet) {

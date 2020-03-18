@@ -9,10 +9,12 @@ import javax.transaction.SystemException;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.revature.daos.StudySetDao;
 import com.revature.models.StudySet;
 
+@Service
 public class StudySetService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
@@ -31,11 +33,11 @@ public class StudySetService {
 		return studySetDao.getAllStudySets();
 	}
 	// update
-	public int updateStudySet(StudySet studyset) {
-		return studySetDao.updateStudySet(studyset);
+	public int updateStudySet(int id, String name) {
+		return studySetDao.updateStudySet(new StudySet(id, name));
 	}
 	// remove
-	public int removeStudySet(StudySet studyset) {
-		return studySetDao.removeStudySet(studyset);
+	public int removeStudySet(int id) {
+		return studySetDao.removeStudySet(new StudySet(id, null));
 	}
 }

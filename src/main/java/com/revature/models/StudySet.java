@@ -59,6 +59,12 @@ public class StudySet implements Serializable {
 		
 	}
 	
+	public StudySet(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
 	public StudySet(int id, String name, User user) {
 		super();
 		this.id = id;
@@ -66,7 +72,6 @@ public class StudySet implements Serializable {
 		this.user.add(user);
 	}
 	
-
 	public int getId() {
 		return id;
 	}
