@@ -12,6 +12,9 @@ public interface SubjectDao {
 	// get subject by id
 	public Subject getSubjectById(int id);
 	
+	// get subject by name
+	public Subject getSubjectByName(String name);
+	
 	// get all subjects
 	public List<Subject> getAllSubjects();
 	
