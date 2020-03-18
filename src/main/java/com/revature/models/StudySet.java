@@ -41,7 +41,6 @@ public class StudySet implements Serializable {
 			inverseJoinColumns = { @JoinColumn(name = "user_id")})
 	private List<User> user;
 	
-	@Autowired
 	@ManyToMany(mappedBy="studySet", fetch=FetchType.EAGER)
 	private List<Resource> resourceList;
 	

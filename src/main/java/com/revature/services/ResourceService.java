@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.revature.daos.ResourceDao;
 import com.revature.models.Resource;
 
+@Service
 public class ResourceService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");

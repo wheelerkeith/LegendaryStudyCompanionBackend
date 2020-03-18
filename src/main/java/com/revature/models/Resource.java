@@ -33,12 +33,10 @@ public class Resource implements Serializable{
 	
 	private String url;
 	
-	@Autowired
 	@ManyToOne
 	@JoinColumn(name="subject_id")
 	private Subject subject;
 	
-	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "studyset_resources",
