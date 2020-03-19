@@ -1,0 +1,334 @@
+2020-03-18 23:56:54 INFO  AbstractApplicationContext:578 method: prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7fbe847c: startup date [Wed Mar 18 23:56:54 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:54 INFO  XmlBeanDefinitionReader:317 method: loadBeanDefinitions - Loading XML bean definitions from class path resource [beans.xml]
+2020-03-18 23:56:55 INFO  AutowiredAnnotationBeanPostProcessor:153 method: <init> - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-03-18 23:56:55 INFO  AbstractApplicationContext:578 method: prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4b8ee4de: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:55 INFO  XmlBeanDefinitionReader:317 method: loadBeanDefinitions - Loading XML bean definitions from class path resource [beans.xml]
+2020-03-18 23:56:55 INFO  AutowiredAnnotationBeanPostProcessor:153 method: <init> - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-03-18 23:56:55 WARN  AutowiredAnnotationBeanPostProcessor$2:398 method: doWith - Autowired annotation is not supported on static fields: private static com.revature.services.UserService com.revature.controllers.LoginController.userService
+2020-03-18 23:56:55 INFO  AbstractApplicationContext:578 method: prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@a1f72f5: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:55 INFO  XmlBeanDefinitionReader:317 method: loadBeanDefinitions - Loading XML bean definitions from class path resource [beans.xml]
+2020-03-18 23:56:55 INFO  AutowiredAnnotationBeanPostProcessor:153 method: <init> - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-03-18 23:56:55 WARN  AutowiredAnnotationBeanPostProcessor$2:398 method: doWith - Autowired annotation is not supported on static fields: private static com.revature.services.UserService com.revature.controllers.LoginController.userService
+2020-03-18 23:56:55 INFO  AbstractApplicationContext:578 method: prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2812b107: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:55 INFO  XmlBeanDefinitionReader:317 method: loadBeanDefinitions - Loading XML bean definitions from class path resource [beans.xml]
+2020-03-18 23:56:55 INFO  AutowiredAnnotationBeanPostProcessor:153 method: <init> - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-03-18 23:56:55 WARN  AutowiredAnnotationBeanPostProcessor$2:398 method: doWith - Autowired annotation is not supported on static fields: private static com.revature.services.UserService com.revature.controllers.LoginController.userService
+2020-03-18 23:56:56 INFO  AbstractApplicationContext:578 method: prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5b6ec132: startup date [Wed Mar 18 23:56:56 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:56 INFO  XmlBeanDefinitionReader:317 method: loadBeanDefinitions - Loading XML bean definitions from class path resource [beans.xml]
+2020-03-18 23:56:56 INFO  AutowiredAnnotationBeanPostProcessor:153 method: <init> - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-03-18 23:56:56 WARN  AutowiredAnnotationBeanPostProcessor$2:398 method: doWith - Autowired annotation is not supported on static fields: private static com.revature.services.UserService com.revature.controllers.LoginController.userService
+2020-03-18 23:56:56 INFO  JavaReflectionManager:66 method: <clinit> - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2020-03-18 23:56:56 INFO  Version:54 method: logVersion - HHH000412: Hibernate Core {4.3.11.Final}
+2020-03-18 23:56:56 INFO  Environment:239 method: <clinit> - HHH000206: hibernate.properties not found
+2020-03-18 23:56:56 INFO  Environment:346 method: buildBytecodeProvider - HHH000021: Bytecode provider name : javassist
+2020-03-18 23:56:56 INFO  Dialect:145 method: <init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-03-18 23:56:56 INFO  LobCreatorBuilder:123 method: useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-03-18 23:56:57 INFO  TransactionFactoryInitiator:62 method: initiateService - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2020-03-18 23:56:57 INFO  ASTQueryTranslatorFactory:47 method: <init> - HHH000397: Using ASTQueryTranslatorFactory
+2020-03-18 23:56:57 INFO  SchemaValidator:157 method: validate - HHH000229: Running schema validator
+2020-03-18 23:56:57 INFO  SchemaValidator:165 method: validate - HHH000102: Fetching database metadata
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.blacklist
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, status]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.resource
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, url]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, name]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.subject
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, name]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.app_user
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [password, full_name, role, user_id, user_name, email]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_resources
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, resource_id]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_user
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, user_id]
+2020-03-18 23:56:57 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.user_liked_resource
+2020-03-18 23:56:57 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [user_id, resource_id]
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.removeBlacklistEntry(int,int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}:{newStatus}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.updateBlacklistEntry(int,int,java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[GET]}" onto public com.revature.models.Blacklist com.revature.controllers.BlacklistController.getBlacklistByIds(int,int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[GET]}" onto public java.util.List<com.revature.models.Blacklist> com.revature.controllers.BlacklistController.getAllFromBlacklist()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.addToBlacklist(int,int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.controllers.HelloWorldController.returnHomePage()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/login],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.LoginController.authenticateUser(com.revature.models.User)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.ResourceController.addResource(com.revature.models.Resource)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[GET]}" onto public java.util.List<com.revature.models.Resource> com.revature.controllers.ResourceController.getAllResources()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.addStudySet(com.revature.models.StudySet)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[GET]}" onto public java.util.List<com.revature.models.StudySet> com.revature.controllers.StudySetController.getAllStudySets()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}:{name}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.updateStudySet(int,java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[GET]}" onto public com.revature.models.StudySet com.revature.controllers.StudySetController.getStudySetById(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.removeStudySet(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/name],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByNameObject(com.revature.models.Subject)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.updateSubject(com.revature.models.Subject)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[GET]}" onto public java.util.List<com.revature.models.Subject> com.revature.controllers.SubjectController.getAllSubjects()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{name}],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByName(java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.removeSubject(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.addSubject(java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.UserController.addUser(com.revature.models.User)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[GET]}" onto public java.util.List<com.revature.models.User> com.revature.controllers.UserController.getAllUsers()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.updateUser(int,com.revature.models.User)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[GET]}" onto public com.revature.models.User com.revature.controllers.UserController.getUserById(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.deleteUser(int)
+2020-03-18 23:56:58 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@5b6ec132: startup date [Wed Mar 18 23:56:56 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:58 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@5b6ec132: startup date [Wed Mar 18 23:56:56 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:58 INFO  AbstractUrlHandlerMapping:341 method: registerHandler - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-03-18 23:56:58 INFO  HibernateTransactionManager:360 method: afterPropertiesSet - Using DataSource [org.apache.commons.dbcp.BasicDataSource@5d51e129] of Hibernate SessionFactory for HibernateTransactionManager
+2020-03-18 23:56:58 INFO  Dialect:145 method: <init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-03-18 23:56:58 INFO  LobCreatorBuilder:123 method: useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-03-18 23:56:58 INFO  TransactionFactoryInitiator:62 method: initiateService - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2020-03-18 23:56:58 INFO  ASTQueryTranslatorFactory:47 method: <init> - HHH000397: Using ASTQueryTranslatorFactory
+2020-03-18 23:56:58 INFO  SchemaValidator:157 method: validate - HHH000229: Running schema validator
+2020-03-18 23:56:58 INFO  SchemaValidator:165 method: validate - HHH000102: Fetching database metadata
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.blacklist
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, status]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.resource
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, url]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, name]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.subject
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, name]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.app_user
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [password, full_name, role, user_id, user_name, email]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_resources
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, resource_id]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_user
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, user_id]
+2020-03-18 23:56:58 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.user_liked_resource
+2020-03-18 23:56:58 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [user_id, resource_id]
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.removeBlacklistEntry(int,int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}:{newStatus}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.updateBlacklistEntry(int,int,java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[GET]}" onto public com.revature.models.Blacklist com.revature.controllers.BlacklistController.getBlacklistByIds(int,int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[GET]}" onto public java.util.List<com.revature.models.Blacklist> com.revature.controllers.BlacklistController.getAllFromBlacklist()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.addToBlacklist(int,int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.controllers.HelloWorldController.returnHomePage()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/login],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.LoginController.authenticateUser(com.revature.models.User)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.ResourceController.addResource(com.revature.models.Resource)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[GET]}" onto public java.util.List<com.revature.models.Resource> com.revature.controllers.ResourceController.getAllResources()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.addStudySet(com.revature.models.StudySet)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[GET]}" onto public java.util.List<com.revature.models.StudySet> com.revature.controllers.StudySetController.getAllStudySets()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}:{name}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.updateStudySet(int,java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[GET]}" onto public com.revature.models.StudySet com.revature.controllers.StudySetController.getStudySetById(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.removeStudySet(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/name],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByNameObject(com.revature.models.Subject)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.updateSubject(com.revature.models.Subject)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[GET]}" onto public java.util.List<com.revature.models.Subject> com.revature.controllers.SubjectController.getAllSubjects()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{name}],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByName(java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.removeSubject(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.addSubject(java.lang.String)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.UserController.addUser(com.revature.models.User)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[GET]}" onto public java.util.List<com.revature.models.User> com.revature.controllers.UserController.getAllUsers()
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.updateUser(int,com.revature.models.User)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[GET]}" onto public com.revature.models.User com.revature.controllers.UserController.getUserById(int)
+2020-03-18 23:56:58 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.deleteUser(int)
+2020-03-18 23:56:59 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@2812b107: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:59 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@2812b107: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:59 INFO  AbstractUrlHandlerMapping:341 method: registerHandler - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-03-18 23:56:59 INFO  HibernateTransactionManager:360 method: afterPropertiesSet - Using DataSource [org.apache.commons.dbcp.BasicDataSource@6d5c2745] of Hibernate SessionFactory for HibernateTransactionManager
+2020-03-18 23:56:59 INFO  Dialect:145 method: <init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-03-18 23:56:59 INFO  LobCreatorBuilder:123 method: useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-03-18 23:56:59 INFO  TransactionFactoryInitiator:62 method: initiateService - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2020-03-18 23:56:59 INFO  ASTQueryTranslatorFactory:47 method: <init> - HHH000397: Using ASTQueryTranslatorFactory
+2020-03-18 23:56:59 INFO  SchemaValidator:157 method: validate - HHH000229: Running schema validator
+2020-03-18 23:56:59 INFO  SchemaValidator:165 method: validate - HHH000102: Fetching database metadata
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.blacklist
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, status]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.resource
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, url]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, name]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.subject
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, name]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.app_user
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [password, full_name, role, user_id, user_name, email]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_resources
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, resource_id]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_user
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, user_id]
+2020-03-18 23:56:59 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.user_liked_resource
+2020-03-18 23:56:59 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [user_id, resource_id]
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.removeBlacklistEntry(int,int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}:{newStatus}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.updateBlacklistEntry(int,int,java.lang.String)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[GET]}" onto public com.revature.models.Blacklist com.revature.controllers.BlacklistController.getBlacklistByIds(int,int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[GET]}" onto public java.util.List<com.revature.models.Blacklist> com.revature.controllers.BlacklistController.getAllFromBlacklist()
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.addToBlacklist(int,int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.controllers.HelloWorldController.returnHomePage()
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/login],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.LoginController.authenticateUser(com.revature.models.User)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.ResourceController.addResource(com.revature.models.Resource)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[GET]}" onto public java.util.List<com.revature.models.Resource> com.revature.controllers.ResourceController.getAllResources()
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.addStudySet(com.revature.models.StudySet)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[GET]}" onto public java.util.List<com.revature.models.StudySet> com.revature.controllers.StudySetController.getAllStudySets()
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}:{name}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.updateStudySet(int,java.lang.String)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[GET]}" onto public com.revature.models.StudySet com.revature.controllers.StudySetController.getStudySetById(int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.removeStudySet(int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/name],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByNameObject(com.revature.models.Subject)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.updateSubject(com.revature.models.Subject)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[GET]}" onto public java.util.List<com.revature.models.Subject> com.revature.controllers.SubjectController.getAllSubjects()
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{name}],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByName(java.lang.String)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.removeSubject(int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.addSubject(java.lang.String)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.UserController.addUser(com.revature.models.User)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[GET]}" onto public java.util.List<com.revature.models.User> com.revature.controllers.UserController.getAllUsers()
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.updateUser(int,com.revature.models.User)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[GET]}" onto public com.revature.models.User com.revature.controllers.UserController.getUserById(int)
+2020-03-18 23:56:59 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.deleteUser(int)
+2020-03-18 23:56:59 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@a1f72f5: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:59 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@a1f72f5: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:56:59 INFO  AbstractUrlHandlerMapping:341 method: registerHandler - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-03-18 23:56:59 INFO  HibernateTransactionManager:360 method: afterPropertiesSet - Using DataSource [org.apache.commons.dbcp.BasicDataSource@23a918c7] of Hibernate SessionFactory for HibernateTransactionManager
+2020-03-18 23:57:00 INFO  Dialect:145 method: <init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-03-18 23:57:00 INFO  LobCreatorBuilder:123 method: useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-03-18 23:57:00 INFO  TransactionFactoryInitiator:62 method: initiateService - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2020-03-18 23:57:00 INFO  ASTQueryTranslatorFactory:47 method: <init> - HHH000397: Using ASTQueryTranslatorFactory
+2020-03-18 23:57:00 INFO  SchemaValidator:157 method: validate - HHH000229: Running schema validator
+2020-03-18 23:57:00 INFO  SchemaValidator:165 method: validate - HHH000102: Fetching database metadata
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.blacklist
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, status]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.resource
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, url]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, name]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.subject
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, name]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.app_user
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [password, full_name, role, user_id, user_name, email]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_resources
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, resource_id]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_user
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, user_id]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.user_liked_resource
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [user_id, resource_id]
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.removeBlacklistEntry(int,int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}:{newStatus}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.updateBlacklistEntry(int,int,java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[GET]}" onto public com.revature.models.Blacklist com.revature.controllers.BlacklistController.getBlacklistByIds(int,int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[GET]}" onto public java.util.List<com.revature.models.Blacklist> com.revature.controllers.BlacklistController.getAllFromBlacklist()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.addToBlacklist(int,int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.controllers.HelloWorldController.returnHomePage()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/login],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.LoginController.authenticateUser(com.revature.models.User)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.ResourceController.addResource(com.revature.models.Resource)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[GET]}" onto public java.util.List<com.revature.models.Resource> com.revature.controllers.ResourceController.getAllResources()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.addStudySet(com.revature.models.StudySet)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[GET]}" onto public java.util.List<com.revature.models.StudySet> com.revature.controllers.StudySetController.getAllStudySets()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}:{name}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.updateStudySet(int,java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[GET]}" onto public com.revature.models.StudySet com.revature.controllers.StudySetController.getStudySetById(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.removeStudySet(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/name],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByNameObject(com.revature.models.Subject)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.updateSubject(com.revature.models.Subject)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[GET]}" onto public java.util.List<com.revature.models.Subject> com.revature.controllers.SubjectController.getAllSubjects()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{name}],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByName(java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.removeSubject(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.addSubject(java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.UserController.addUser(com.revature.models.User)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[GET]}" onto public java.util.List<com.revature.models.User> com.revature.controllers.UserController.getAllUsers()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.updateUser(int,com.revature.models.User)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[GET]}" onto public com.revature.models.User com.revature.controllers.UserController.getUserById(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.deleteUser(int)
+2020-03-18 23:57:00 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@4b8ee4de: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:00 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@4b8ee4de: startup date [Wed Mar 18 23:56:55 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:00 INFO  AbstractUrlHandlerMapping:341 method: registerHandler - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-03-18 23:57:00 INFO  HibernateTransactionManager:360 method: afterPropertiesSet - Using DataSource [org.apache.commons.dbcp.BasicDataSource@72bdd7c7] of Hibernate SessionFactory for HibernateTransactionManager
+2020-03-18 23:57:00 WARN  AutowiredAnnotationBeanPostProcessor$2:398 method: doWith - Autowired annotation is not supported on static fields: private static com.revature.services.UserService com.revature.controllers.LoginController.userService
+2020-03-18 23:57:00 INFO  Dialect:145 method: <init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-03-18 23:57:00 INFO  LobCreatorBuilder:123 method: useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-03-18 23:57:00 INFO  TransactionFactoryInitiator:62 method: initiateService - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2020-03-18 23:57:00 INFO  ASTQueryTranslatorFactory:47 method: <init> - HHH000397: Using ASTQueryTranslatorFactory
+2020-03-18 23:57:00 INFO  SchemaValidator:157 method: validate - HHH000229: Running schema validator
+2020-03-18 23:57:00 INFO  SchemaValidator:165 method: validate - HHH000102: Fetching database metadata
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.blacklist
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, status]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.resource
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, url]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, name]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.subject
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, name]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.app_user
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [password, full_name, role, user_id, user_name, email]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_resources
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, resource_id]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_user
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, user_id]
+2020-03-18 23:57:00 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.user_liked_resource
+2020-03-18 23:57:00 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [user_id, resource_id]
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.removeBlacklistEntry(int,int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}:{newStatus}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.updateBlacklistEntry(int,int,java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[GET]}" onto public com.revature.models.Blacklist com.revature.controllers.BlacklistController.getBlacklistByIds(int,int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[GET]}" onto public java.util.List<com.revature.models.Blacklist> com.revature.controllers.BlacklistController.getAllFromBlacklist()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.addToBlacklist(int,int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.controllers.HelloWorldController.returnHomePage()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/login],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.LoginController.authenticateUser(com.revature.models.User)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.ResourceController.addResource(com.revature.models.Resource)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[GET]}" onto public java.util.List<com.revature.models.Resource> com.revature.controllers.ResourceController.getAllResources()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.addStudySet(com.revature.models.StudySet)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[GET]}" onto public java.util.List<com.revature.models.StudySet> com.revature.controllers.StudySetController.getAllStudySets()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}:{name}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.updateStudySet(int,java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[GET]}" onto public com.revature.models.StudySet com.revature.controllers.StudySetController.getStudySetById(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.removeStudySet(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/name],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByNameObject(com.revature.models.Subject)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.updateSubject(com.revature.models.Subject)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[GET]}" onto public java.util.List<com.revature.models.Subject> com.revature.controllers.SubjectController.getAllSubjects()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{name}],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByName(java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.removeSubject(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.addSubject(java.lang.String)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.UserController.addUser(com.revature.models.User)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[GET]}" onto public java.util.List<com.revature.models.User> com.revature.controllers.UserController.getAllUsers()
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.updateUser(int,com.revature.models.User)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[GET]}" onto public com.revature.models.User com.revature.controllers.UserController.getUserById(int)
+2020-03-18 23:57:00 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.deleteUser(int)
+2020-03-18 23:57:00 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@7fbe847c: startup date [Wed Mar 18 23:56:54 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:00 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@7fbe847c: startup date [Wed Mar 18 23:56:54 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:00 INFO  AbstractUrlHandlerMapping:341 method: registerHandler - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-03-18 23:57:00 INFO  HibernateTransactionManager:360 method: afterPropertiesSet - Using DataSource [org.apache.commons.dbcp.BasicDataSource@74024f3] of Hibernate SessionFactory for HibernateTransactionManager
+2020-03-18 23:57:00 INFO  AbstractApplicationContext:578 method: prepareRefresh - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61ae0d43: startup date [Wed Mar 18 23:57:00 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:00 INFO  XmlBeanDefinitionReader:317 method: loadBeanDefinitions - Loading XML bean definitions from class path resource [beans.xml]
+2020-03-18 23:57:01 INFO  AutowiredAnnotationBeanPostProcessor:153 method: <init> - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-03-18 23:57:01 WARN  AutowiredAnnotationBeanPostProcessor$2:398 method: doWith - Autowired annotation is not supported on static fields: private static com.revature.services.UserService com.revature.controllers.LoginController.userService
+2020-03-18 23:57:01 INFO  Dialect:145 method: <init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-03-18 23:57:01 INFO  LobCreatorBuilder:123 method: useContextualLobCreation - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-03-18 23:57:01 INFO  TransactionFactoryInitiator:62 method: initiateService - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2020-03-18 23:57:01 INFO  ASTQueryTranslatorFactory:47 method: <init> - HHH000397: Using ASTQueryTranslatorFactory
+2020-03-18 23:57:01 INFO  SchemaValidator:157 method: validate - HHH000229: Running schema validator
+2020-03-18 23:57:01 INFO  SchemaValidator:165 method: validate - HHH000102: Fetching database metadata
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.blacklist
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, status]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.resource
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, resource_id, url]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, name]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.subject
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [subject_id, name]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.app_user
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [password, full_name, role, user_id, user_name, email]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_resources
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, resource_id]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.studyset_user
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [studyset_id, user_id]
+2020-03-18 23:57:01 INFO  TableMetadata:65 method: <init> - HHH000261: Table found: public.user_liked_resource
+2020-03-18 23:57:01 INFO  TableMetadata:66 method: <init> - HHH000037: Columns: [user_id, resource_id]
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.removeBlacklistEntry(int,int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}:{newStatus}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.updateBlacklistEntry(int,int,java.lang.String)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist/{resourceId}&{subjectId}],methods=[GET]}" onto public com.revature.models.Blacklist com.revature.controllers.BlacklistController.getBlacklistByIds(int,int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[GET]}" onto public java.util.List<com.revature.models.Blacklist> com.revature.controllers.BlacklistController.getAllFromBlacklist()
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/blacklist],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.BlacklistController.addToBlacklist(int,int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.controllers.HelloWorldController.returnHomePage()
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/login],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.LoginController.authenticateUser(com.revature.models.User)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.ResourceController.addResource(com.revature.models.Resource)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/resource],methods=[GET]}" onto public java.util.List<com.revature.models.Resource> com.revature.controllers.ResourceController.getAllResources()
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.addStudySet(com.revature.models.StudySet)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset],methods=[GET]}" onto public java.util.List<com.revature.models.StudySet> com.revature.controllers.StudySetController.getAllStudySets()
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}:{name}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.updateStudySet(int,java.lang.String)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[GET]}" onto public com.revature.models.StudySet com.revature.controllers.StudySetController.getStudySetById(int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/studyset/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.StudySetController.removeStudySet(int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/name],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByNameObject(com.revature.models.Subject)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.updateSubject(com.revature.models.Subject)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[GET]}" onto public java.util.List<com.revature.models.Subject> com.revature.controllers.SubjectController.getAllSubjects()
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{name}],methods=[GET]}" onto public com.revature.models.Subject com.revature.controllers.SubjectController.getSubjectByName(java.lang.String)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.removeSubject(int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/subject],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.SubjectController.addSubject(java.lang.String)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.String> com.revature.controllers.UserController.addUser(com.revature.models.User)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user],methods=[GET]}" onto public java.util.List<com.revature.models.User> com.revature.controllers.UserController.getAllUsers()
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.updateUser(int,com.revature.models.User)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[GET]}" onto public com.revature.models.User com.revature.controllers.UserController.getUserById(int)
+2020-03-18 23:57:01 INFO  AbstractHandlerMethodMapping$MappingRegistry:534 method: register - Mapped "{[/user/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<com.revature.models.User> com.revature.controllers.UserController.deleteUser(int)
+2020-03-18 23:57:01 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@61ae0d43: startup date [Wed Mar 18 23:57:00 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:01 INFO  RequestMappingHandlerAdapter:532 method: initControllerAdviceCache - Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@61ae0d43: startup date [Wed Mar 18 23:57:00 CDT 2020]; root of context hierarchy
+2020-03-18 23:57:01 INFO  AbstractUrlHandlerMapping:341 method: registerHandler - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-03-18 23:57:01 INFO  HibernateTransactionManager:360 method: afterPropertiesSet - Using DataSource [org.apache.commons.dbcp.BasicDataSource@11787b64] of Hibernate SessionFactory for HibernateTransactionManager
