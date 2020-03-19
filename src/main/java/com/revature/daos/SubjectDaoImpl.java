@@ -2,10 +2,12 @@ package com.revature.daos;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -35,6 +37,18 @@ public class SubjectDaoImpl implements SubjectDao{
 		Subject subject = (Subject) s.get(Subject.class, id);
 		
 		return subject;
+	}
+	
+	
+	// get subject by name
+	@Transactional
+	@Override
+	public Subject getSubjectByName(String name) {
+		Session s = sf.getCurrentSession();
+		String hql = "from Subject where name = :nameVar";
+		Query subjectQuery = s.createQuery(hql);
+		subjectQuery.setParameter("nameVar", name);
+		return (Subject) subjectQuery.uniqueResult();
 	}
 	
 	

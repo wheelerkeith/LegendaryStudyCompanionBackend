@@ -89,13 +89,13 @@ public class Driver {
 //		System.out.println("-- SUBJECT TESTS -----------------------------------------------------------------------");
 //		System.out.println();
 //		Subject s = new Subject(".Net");		
-//		System.out.println("ADD SUBJECT .NET: " + ss.addSubject(s));
+//		System.out.println("ADD SUBJECT .NET: " + ss.addSubjectObject(s));
 //		Subject s0 = new Subject("Math");
-//		System.out.println("ADD SUBJECT MATH: " + ss.addSubject(s0));
+//		System.out.println("ADD SUBJECT MATH: " + ss.addSubjectObject(s0));
 //		Subject s1 = new Subject("History");
-//		System.out.println("ADD SUBJECT HISTORY: " + ss.addSubject(s1));
+//		System.out.println("ADD SUBJECT HISTORY: " + ss.addSubjectObject(s1));
 //		Subject s2 = new Subject("Java");
-//		System.out.println("ADD SUBJECT JAVA: " + ss.addSubject(s2));
+//		System.out.println("ADD SUBJECT JAVA: " + ss.addSubjectObject(s2));
 //		System.out.println();
 //		
 //		System.out.println("GET BY ID 4: " + ss.getSubjectById(4));
@@ -109,9 +109,9 @@ public class Driver {
 //		System.out.println(ss.getAllSubjects());
 //		System.out.println();
 //		
-//		System.out.println("REMOVE MATH SUBJECT: " + ss.removeSubject(s0));
-//		System.out.println(ss.getAllSubjects());
-//		System.out.println();
+////		System.out.println("REMOVE MATH SUBJECT: " + ss.removeSubject(s0));
+////		System.out.println(ss.getAllSubjects());
+////		System.out.println();
 //	
 //		
 //		// testing out that I can create resources and that their daos are behaving correctly

@@ -47,7 +47,7 @@ public class StudySetController {
 		return studySetService.getStudySetById(id);
 	}
 	
-	// PUT - update studyset name (/studyset/id)
+	// PUT - update studyset name (/studyset/id:name)
 	// looking for URL like:
 	// localhost:8080/LegendaryStudyCompanionBackend/studyset/5:Advanced DODA
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}:{name}")
