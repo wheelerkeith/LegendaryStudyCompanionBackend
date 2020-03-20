@@ -8,6 +8,7 @@ import javax.persistence.RollbackException;
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -90,7 +91,21 @@ public class UserDaoImpl implements UserDao{
 	public int updateUser(User u) {
 		int didItCommit = 0;
 		
+		if (u.getPassword() == "") {
+			User ghostUser = new User();
+			ghostUser.setFullName(u.getFullName());
+			ghostUser.setEmail(u.getEmail());
+			ghostUser.setUserName(u.getUserName());
+			
+			u = getUserById(u.getUserId());
+			
+			u.setFullName(ghostUser.getFullName());
+			u.setEmail(ghostUser.getEmail());
+			u.setUserName(ghostUser.getUserName());
+		}
+		
 		Session s = sf.getCurrentSession();
+		
 		s.update(u);
 		didItCommit = 1;
 		

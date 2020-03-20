@@ -34,6 +34,7 @@ public class StudySet implements Serializable {
 	private int id;
 	private String name;
 	
+	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name = "studyset_user",
@@ -41,6 +42,7 @@ public class StudySet implements Serializable {
 			inverseJoinColumns = { @JoinColumn(name = "user_id")})
 	private List<User> user;
 	
+	@Autowired
 	@ManyToMany(mappedBy="studySet", fetch=FetchType.EAGER)
 	private List<Resource> resourceList;
 	
@@ -96,7 +98,7 @@ public class StudySet implements Serializable {
 	}
 	
 	public List<Resource> getResourceList() {
-		return resourceList;
+		return null;
 	}
 	
 	public void setResourceList(List<Resource> resourceList) {
