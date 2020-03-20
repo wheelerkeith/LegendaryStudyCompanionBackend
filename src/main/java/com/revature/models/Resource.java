@@ -31,6 +31,8 @@ public class Resource implements Serializable{
 	@Column(name="resource_id")
 	private int resourceId;
 	
+	private String title;
+	
 	private String url;
 	
 	@ManyToOne
@@ -63,6 +65,13 @@ public class Resource implements Serializable{
 		this.resourceId = resourceId;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	public String getUrl() {
 		return url;
@@ -98,6 +107,7 @@ public class Resource implements Serializable{
 		result = prime * result + resourceId;
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
 	}
@@ -123,6 +133,11 @@ public class Resource implements Serializable{
 				return false;
 		} else if (!subject.equals(other.subject))
 			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
 		if (url == null) {
 			if (other.url != null)
 				return false;
@@ -133,7 +148,10 @@ public class Resource implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Resource [id=" + resourceId + ", url=" + url + ", subject=" + subject + ", studySet=" + studySet + "]";
+		return "Resource [resourceId=" + resourceId + ", title=" + title + ", url=" + url + ", subject=" + subject
+				+ ", studySet=" + studySet + "]";
 	}
+
+	
 
 }

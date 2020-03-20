@@ -14,12 +14,14 @@ import java.util.TreeMap;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Service
 public class ApiService {
 	
 	public JsonNode getFromApi(String url) {
@@ -40,7 +42,7 @@ public class ApiService {
 		return root;
 	}
 	
-	public Map<String, String> searchWikipedia(String query) {
+	public Map<String, String> searchWikipedia(String query, int limit, int offset) {
 		
 		Map<String, String> resources = new LinkedHashMap<>();
 		
@@ -54,7 +56,7 @@ public class ApiService {
 		
 		// Fetch from the Wikipedia API
 		// Pagination params: srlimit, sroffset
-		JsonNode results = getFromApi("https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + encodedQuery + "&format=json");
+		JsonNode results = getFromApi("https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + encodedQuery + "&format=json&srlimit=" + limit + "&sroffset=" + offset);
 		
 		// Navigate through the JSON
 		results = results.path("query").path("search");
@@ -66,13 +68,11 @@ public class ApiService {
 			
 			resources.put(pageTitle, "https://en.wikipedia.org/wiki/"+pageTitle);
 		}
-		
-		System.out.println(resources);
 
 		return resources;
 	}
 	
-	public Map<String, String> searchGoogleBooks(String query) {
+	public Map<String, String> searchGoogleBooks(String query, int limit, int offset) {
 		
 		Map<String, String> resources = new LinkedHashMap<>();
 		
@@ -86,7 +86,7 @@ public class ApiService {
 		
 		// Fetch from the Google Books API
 		// Pagination params: maxResults, startIndex
-		JsonNode results = getFromApi("https://www.googleapis.com/books/v1/volumes?q=" + encodedQuery);
+		JsonNode results = getFromApi("https://www.googleapis.com/books/v1/volumes?q=" + encodedQuery + "&maxResults=" + limit + "&startIndex=" + offset);
 		
 		// Navigate through the JSON
 		results = results.path("items");
@@ -99,8 +99,6 @@ public class ApiService {
 			
 			resources.put(resTitle, url);
 		}
-		
-		System.out.println(resources);
 
 		return resources;
 	}

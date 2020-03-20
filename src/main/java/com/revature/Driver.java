@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -210,7 +212,11 @@ public class Driver {
 //		sss.addStudySet(new StudySet("Intro to C++", u));
 		
 //		as.searchWikipedia("Java");
-		as.searchGoogleBooks("Java");
+//		as.searchGoogleBooks("Java");
+		
+		List<Resource> resources = rs.getResourceList("Java", 10);
+		
+		System.out.println(resources);
 	}
 
 }
