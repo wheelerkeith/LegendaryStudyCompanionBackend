@@ -214,9 +214,9 @@ public class Driver {
 //		as.searchWikipedia("Java");
 //		as.searchGoogleBooks("Java");
 		
-		List<Resource> resources = rs.getResourceList("Java", 10);
-		
-		System.out.println(resources);
+//		List<Resource> resources = rs.getResourceList("Java", 10);
+//		
+//		System.out.println(resources);
 	}
 
 }

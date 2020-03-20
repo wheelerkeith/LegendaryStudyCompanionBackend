@@ -67,24 +67,38 @@ public class ResourceService {
 	public List<Resource> getResourceList(String query, int listSize) {
 		List<Resource> resources = new ArrayList<>();
 		
-		Map<String, String> wikipediaResults = apiService.searchWikipedia(query, listSize, 0);
-		Map<String, String> googleBooksResults = apiService.searchGoogleBooks(query, listSize, 0);
+		// TODO: Add limit to dbResources so not pulling ALL at once
+		// TODO: getResourcesBySubject
+		List<Resource> dbResources = getAllResources();
 		
-		int currentIndex = 0;
+		// Populate list from saved resources first
+		for(Resource r : dbResources) {
+			if(resources.size() < listSize) {
+				resources.add(r);
+			}
+		}
 		
-		while(resources.size() < listSize && currentIndex < listSize) {
+		// If list is still too small then populate from APIs
+		if (resources.size() < listSize) {
+			Map<String, String> wikipediaResults = apiService.searchWikipedia(query, listSize, 0);
+			Map<String, String> googleBooksResults = apiService.searchGoogleBooks(query, listSize, 0);
 			
-			Resource wikiRes = makeResourceFromMap(wikipediaResults, currentIndex);
-			if(!checkDuplicateResource(wikiRes)) {
-				resources.add(wikiRes);
+			int currentIndex = 0;
+			
+			while(resources.size() < listSize && currentIndex < listSize) {
+				
+				Resource wikiRes = makeResourceFromMap(wikipediaResults, currentIndex);
+				if(!checkDuplicateResource(wikiRes)) {
+					resources.add(wikiRes);
+				}
+				
+				Resource googleRes = makeResourceFromMap(googleBooksResults, currentIndex);
+				if(!checkDuplicateResource(googleRes)) {
+					resources.add(googleRes);
+				}
+				
+				currentIndex++;
 			}
-			
-			Resource googleRes = makeResourceFromMap(googleBooksResults, currentIndex);
-			if(!checkDuplicateResource(googleRes)) {
-				resources.add(googleRes);
-			}
-			
-			currentIndex++;
 		}
 		
 		return resources;
