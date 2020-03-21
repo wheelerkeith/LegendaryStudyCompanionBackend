@@ -56,7 +56,7 @@ public class User implements Serializable {
 			name="user_liked_resource",
 			joinColumns= {@JoinColumn(name="user_id")},
 			inverseJoinColumns= {@JoinColumn(name="resource_id")})
-	private List<Resource> resourceList = new ArrayList<>();
+	private List<Resource> likedResources = new ArrayList<>();
 	
 	
 	public User() {
@@ -134,12 +134,12 @@ public class User implements Serializable {
 		this.studySets = studySets;
 	}
 
-	public List<Resource> getResourceList() {
-		return resourceList;
+	public List<Resource> getLikedResources() {
+		return likedResources;
 	}
 
-	public void setResourceList(List<Resource> resourceList) {
-		this.resourceList = resourceList;
+	public void setLikedResources(List<Resource> likedResources) {
+		this.likedResources = likedResources;
 	}
 
 
@@ -150,7 +150,7 @@ public class User implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((resourceList == null) ? 0 : resourceList.hashCode());
+		result = prime * result + ((likedResources == null) ? 0 : likedResources.hashCode());
 		result = prime * result + role;
 		result = prime * result + ((studySets == null) ? 0 : studySets.hashCode());
 		result = prime * result + userId;
@@ -183,10 +183,10 @@ public class User implements Serializable {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (resourceList == null) {
-			if (other.resourceList != null)
+		if (likedResources == null) {
+			if (other.likedResources != null)
 				return false;
-		} else if (!resourceList.equals(other.resourceList))
+		} else if (!likedResources.equals(other.likedResources))
 			return false;
 		if (role != other.role)
 			return false;
@@ -209,8 +209,8 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", fullName=" + fullName + ", role=" + role + ", studySets=" + studySets + ", resourceList="
-				+ resourceList + "]";
+				+ ", fullName=" + fullName + ", role=" + role + ", studySets=" + studySets + ", likedResources="
+				+ likedResources + "]";
 	}
 
 }

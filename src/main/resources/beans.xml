@@ -26,7 +26,7 @@
 	<bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/static/"></property>
 		<property name="suffix" value=".html"></property>
-	</bean>	
+	</bean>
 	
 	<!-- enable @Transactional -->
 	<tx:annotation-driven></tx:annotation-driven>
@@ -45,7 +45,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.hbm2ddl.auto">validate</prop>
 			</props>
 		</property>
@@ -55,5 +55,4 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 		<property name="nestedTransactionAllowed" value="true"></property>
 	</bean>
-		
 </beans>

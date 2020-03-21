@@ -98,7 +98,7 @@ public class StudySet implements Serializable {
 	}
 	
 	public List<Resource> getResourceList() {
-		return null;
+		return resourceList;
 	}
 	
 	public void setResourceList(List<Resource> resourceList) {
