@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.models.Resource;
@@ -31,10 +32,11 @@ public class ResourceController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	@ResponseBody
-	public List<Resource> getAllResources(){
+	public List<Resource> getAllResources(@RequestParam(name="q", required=false) String q){
+		if (q != null) {
+			return resourceService.getResourceList(q, 10);
+		}
 		return resourceService.getAllResources();
 	}
-	
-	
 
 }

@@ -9,13 +9,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.revature.daos.ResourceDao;
+import com.revature.daos.SubjectDao;
 import com.revature.models.Resource;
+import com.revature.models.Subject;
 
 @Service
 public class ResourceService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 	private static ResourceDao resourceDao = (ResourceDao) ac.getBean("resourceDaoImpl");
+	private static SubjectDao subjectDao = (SubjectDao) ac.getBean("subjectDaoImpl");
 	private static ApiService apiService = (ApiService) ac.getBean("apiService");
 	
 	// add new resource
@@ -68,8 +71,7 @@ public class ResourceService {
 		List<Resource> resources = new ArrayList<>();
 		
 		// TODO: Add limit to dbResources so not pulling ALL at once
-		// TODO: getResourcesBySubject
-		List<Resource> dbResources = getAllResources();
+		List<Resource> dbResources = resourceDao.getResourcesBySubjectName(query);
 		
 		// Populate list from saved resources first
 		for(Resource r : dbResources) {
@@ -80,6 +82,14 @@ public class ResourceService {
 		
 		// If list is still too small then populate from APIs
 		if (resources.size() < listSize) {
+			
+			// Pull subject from DB if it doesnt exist make a new one
+			Subject sub = subjectDao.getSubjectByName(query);
+			
+			if (sub == null) {
+				sub = new Subject(query);
+			}
+			
 			Map<String, String> wikipediaResults = apiService.searchWikipedia(query, listSize, 0);
 			Map<String, String> googleBooksResults = apiService.searchGoogleBooks(query, listSize, 0);
 			
@@ -87,13 +97,16 @@ public class ResourceService {
 			
 			while(resources.size() < listSize && currentIndex < listSize) {
 				
+				// TODO: Check if resource is blacklisted
 				Resource wikiRes = makeResourceFromMap(wikipediaResults, currentIndex);
 				if(!checkDuplicateResource(wikiRes)) {
+					wikiRes.setSubject(sub);
 					resources.add(wikiRes);
 				}
 				
 				Resource googleRes = makeResourceFromMap(googleBooksResults, currentIndex);
 				if(!checkDuplicateResource(googleRes)) {
+					googleRes.setSubject(sub);
 					resources.add(googleRes);
 				}
 				

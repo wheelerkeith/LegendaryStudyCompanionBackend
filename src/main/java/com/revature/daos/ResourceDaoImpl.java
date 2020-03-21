@@ -52,6 +52,21 @@ public class ResourceDaoImpl implements ResourceDao{
 		return r;
 	}
 	
+	// get resources by subject name
+	@Transactional
+	@Override
+	public List<Resource> getResourcesBySubjectName(String subject) {
+		String hql = "select r from Resource r inner join r.subject rs where rs.name = :resourceSubjectVar";
+		
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery(hql);
+		query.setParameter("resourceSubjectVar", subject);
+		
+		final List<Resource> resources = query.list();
+		
+		return resources;
+	}
+	
 	
 	// get all resources
 	@Transactional
