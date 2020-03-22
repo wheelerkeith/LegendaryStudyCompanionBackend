@@ -59,9 +59,9 @@ public class BlacklistController {
 	@RequestMapping(method=RequestMethod.PUT, value="/{resourceId}&{subjectId}:{newStatus}")
 	@CrossOrigin
 	@ResponseBody
-	public ResponseEntity<String> updateBlacklistEntry(@PathVariable("resourceId")int resourceId, @PathVariable("subjectId")int subjectId, @PathVariable("newStatus")String newStatus) {
+	public ResponseEntity<Blacklist> updateBlacklistEntry(@PathVariable("resourceId")int resourceId, @PathVariable("subjectId")int subjectId, @PathVariable("newStatus")String newStatus) {
 		blacklistService.updateBlacklistEntry(resourceId, subjectId, newStatus);
-		return new ResponseEntity<>("blacklist set to: " + newStatus, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	// DELETE - delete blacklist entry
