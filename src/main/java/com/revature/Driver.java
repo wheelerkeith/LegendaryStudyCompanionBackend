@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,6 +12,7 @@ import com.revature.models.Resource;
 import com.revature.models.StudySet;
 import com.revature.models.Subject;
 import com.revature.models.User;
+import com.revature.services.ApiService;
 import com.revature.services.BlacklistService;
 import com.revature.services.ResourceService;
 import com.revature.services.StudySetService;
@@ -25,6 +28,8 @@ public class Driver {
 	private static UserLikedResourceService ulrs = new UserLikedResourceService();
 	private static BlacklistService bls = new BlacklistService();
 	private static StudySetService sss = new StudySetService();
+	
+	private static ApiService as = new ApiService();
 	
 
 	public static void main(String[] args) {
@@ -205,6 +210,15 @@ public class Driver {
 //		sss.addStudySet(new StudySet("Intro to Java", u));
 //		sss.addStudySet(new StudySet("Resources for cooking Flan", u2));
 //		sss.addStudySet(new StudySet("Intro to C++", u));
+		
+//		as.searchWikipedia("Java");
+//		as.searchGoogleBooks("Java");
+		
+//		List<Resource> resources = rs.getResourceList("Java", 10);
+//		
+//		System.out.println(resources);
+		
+//		System.out.println(rs.getResourceList("Java", 10));
 	}
 
 }
