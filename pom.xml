@@ -14,10 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-	<sonar.projectKey>wheelerkeith_LegendaryStudyCompanionBackend</sonar.projectKey>
-	<sonar.organization>wheelerkeith</sonar.organization>
-	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-	<sonar.login>a3bacf27e1b178e92b3481bf2501eb1debf6e04f</sonar.login>
     </properties>
     
       <dependencyManagement>
@@ -100,6 +96,10 @@
         <dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
 		</dependency>
     </dependencies>
     <build>

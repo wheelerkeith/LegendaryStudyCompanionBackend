@@ -46,9 +46,11 @@ public class User implements Serializable {
 	
 	// bideractional many-to-many (the join is in the studyset class)
 	// https://www.javaworld.com/article/3387643/java-persistence-with-jpa-and-hibernate-part-2-many-to-many-relationships.html
+	@Autowired
 	@ManyToMany(mappedBy = "user", fetch=FetchType.EAGER)
 	private List<StudySet> studySets;
 	
+	@Autowired
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name="user_liked_resource",
@@ -67,6 +69,12 @@ public class User implements Serializable {
 		this.email = email;
 		this.fullName = fullName;
 		this.role = role;
+	}
+	
+	public User(String userName, String password, String email) {
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
 	}
 
 	public int getUserId() {
