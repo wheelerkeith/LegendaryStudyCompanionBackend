@@ -73,7 +73,7 @@ public class UserService {
 	public int findResourceInLikedList(User u, Resource r) {
 		int found = 0;
 		
-		for (Resource r0 : u.getResourceList()) {
+		for (Resource r0 : u.getLikedResources()) {
 			if (r0 == r) {
 				found = 1;
 			}			
@@ -84,7 +84,7 @@ public class UserService {
 	
 	// add resource to resource list
 	public int addResourceToList(User u, Resource r) {
-		u.getResourceList().add(r);
+		u.getLikedResources().add(r);
 		return userDao.updateUser(u);
 	}
 	

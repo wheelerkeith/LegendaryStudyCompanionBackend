@@ -27,6 +27,7 @@
 		<property name="prefix" value="/static/"></property>
 		<property name="suffix" value=".html"></property>
 	</bean>	
+
 	
 	<!-- enable @Transactional -->
 	<tx:annotation-driven></tx:annotation-driven>
@@ -55,5 +56,4 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 		<property name="nestedTransactionAllowed" value="true"></property>
 	</bean>
-		
 </beans>
