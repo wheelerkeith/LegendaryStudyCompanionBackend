@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,8 +33,11 @@ public class Resource implements Serializable{
 	private int resourceId;
 	
 	private String title;
-	
+	private String source;
 	private String url;
+	
+	@Transient
+	private int likeCount = 0;
 	
 	@Autowired
 	@ManyToOne
@@ -48,14 +52,14 @@ public class Resource implements Serializable{
 			inverseJoinColumns = { @JoinColumn(name = "studyset_id")})
 	private List<StudySet> studySet;
 	
-	
 	public Resource() {
 		super();
 	}
 	
-	public Resource(String url, Subject subject) {
+	public Resource(String url, Subject subject, String source) {
 		this.url = url;
 		this.subject = subject;
+		this.source = source;
 	}
 
 	public int getResourceId() {
@@ -75,6 +79,14 @@ public class Resource implements Serializable{
 		this.title = title;
 	}
 
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -84,6 +96,13 @@ public class Resource implements Serializable{
 		this.url = url;
 	}
 
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 
 	public Subject getSubject() {
 		return subject;
@@ -106,7 +125,9 @@ public class Resource implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+//		result = prime * result + likeCount;
 		result = prime * result + resourceId;
+		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -123,7 +144,16 @@ public class Resource implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
+//		if (likeCount != other.likeCount)
+//			return false;
+		
+		
 		if (resourceId != other.resourceId)
+			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
 			return false;
 		if (studySet == null) {
 			if (other.studySet != null)
@@ -150,10 +180,8 @@ public class Resource implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Resource [resourceId=" + resourceId + ", title=" + title + ", url=" + url + ", subject=" + subject
-				+ ", studySet=" + studySet + "]";
+		return "Resource [resourceId=" + resourceId + ", title=" + title + ", source=" + source + ", url=" + url
+				+ ", likeCount=" + likeCount + ", subject=" + subject + ", studySet=" + studySet + "]";
 	}
-
-	
 
 }

@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloWorldController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/home")
+	@CrossOrigin
 	@ResponseBody
 	public String returnHomePage() {
 		return "Hello World";

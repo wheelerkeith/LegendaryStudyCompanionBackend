@@ -2,8 +2,11 @@ package com.revature.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,18 +48,19 @@ public class User implements Serializable {
 	private int role;
 	
 	// bideractional many-to-many (the join is in the studyset class)
+	//
 	// https://www.javaworld.com/article/3387643/java-persistence-with-jpa-and-hibernate-part-2-many-to-many-relationships.html
-	@Autowired
-	@ManyToMany(mappedBy = "user", fetch=FetchType.EAGER)
-	private List<StudySet> studySets;
+//	@Autowired
+//	@ManyToMany(mappedBy = "user", fetch=FetchType.EAGER)
+//	private List<StudySet> studySets;
 	
 	@Autowired
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(cascade= {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch=FetchType.EAGER)
 	@JoinTable(
 			name="user_liked_resource",
 			joinColumns= {@JoinColumn(name="user_id")},
 			inverseJoinColumns= {@JoinColumn(name="resource_id")})
-	private List<Resource> likedResources = new ArrayList<>();
+	private Set<Resource> resourceList = new HashSet<>();
 	
 	
 	public User() {
@@ -125,23 +129,22 @@ public class User implements Serializable {
 		this.role = role;
 	}
 	
-	public List<StudySet> getStudySets() {
-		return studySets;
+//	public List<StudySet> getStudySets() {
+//		return studySets;
+//	}
+//
+//
+//	public void setStudySets(List<StudySet> studySets) {
+//		this.studySets = studySets;
+//	}
+
+	public Set<Resource> getResourceList() {
+		return resourceList;
 	}
 
-
-	public void setStudySets(List<StudySet> studySets) {
-		this.studySets = studySets;
+	public void setResourceList(Set<Resource> resourceList) {
+		this.resourceList = resourceList;
 	}
-
-	public List<Resource> getLikedResources() {
-		return likedResources;
-	}
-
-	public void setLikedResources(List<Resource> likedResources) {
-		this.likedResources = likedResources;
-	}
-
 
 	@Override
 	public int hashCode() {
@@ -152,7 +155,7 @@ public class User implements Serializable {
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((likedResources == null) ? 0 : likedResources.hashCode());
 		result = prime * result + role;
-		result = prime * result + ((studySets == null) ? 0 : studySets.hashCode());
+//		result = prime * result + ((studySets == null) ? 0 : studySets.hashCode());
 		result = prime * result + userId;
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
@@ -190,11 +193,11 @@ public class User implements Serializable {
 			return false;
 		if (role != other.role)
 			return false;
-		if (studySets == null) {
-			if (other.studySets != null)
-				return false;
-		} else if (!studySets.equals(other.studySets))
-			return false;
+//		if (studySets == null) {
+//			if (other.studySets != null)
+//				return false;
+//		} else if (!studySets.equals(other.studySets))
+//			return false;
 		if (userId != other.userId)
 			return false;
 		if (userName == null) {
@@ -209,8 +212,8 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", fullName=" + fullName + ", role=" + role + ", studySets=" + studySets + ", likedResources="
-				+ likedResources + "]";
+				+ ", fullName=" + fullName + ", role=" + role + /*", studySets=" + studySets + */", resourceList="
+				+ resourceList + "]";
 	}
 
 }

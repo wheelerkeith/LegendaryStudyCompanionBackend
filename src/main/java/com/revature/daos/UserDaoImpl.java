@@ -91,18 +91,18 @@ public class UserDaoImpl implements UserDao{
 	public int updateUser(User u) {
 		int didItCommit = 0;
 		
-		if (u.getPassword() == "") {
-			User ghostUser = new User();
-			ghostUser.setFullName(u.getFullName());
-			ghostUser.setEmail(u.getEmail());
-			ghostUser.setUserName(u.getUserName());
-			
-			u = getUserById(u.getUserId());
-			
-			u.setFullName(ghostUser.getFullName());
-			u.setEmail(ghostUser.getEmail());
-			u.setUserName(ghostUser.getUserName());
-		}
+//		if (u.getPassword() == "") {
+//			User ghostUser = new User();
+//			ghostUser.setFullName(u.getFullName());
+//			ghostUser.setEmail(u.getEmail());
+//			ghostUser.setUserName(u.getUserName());
+//			
+//			u = getUserById(u.getUserId());
+//			
+//			u.setFullName(ghostUser.getFullName());
+//			u.setEmail(ghostUser.getEmail());
+//			u.setUserName(ghostUser.getUserName());
+//		}
 		
 		Session s = sf.getCurrentSession();
 		
