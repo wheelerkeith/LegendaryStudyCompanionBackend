@@ -18,7 +18,7 @@ public class UserLikedResourceDaoImpl implements UserLikedResourceDao{
 	@Transactional
 	@Override
 	public int getResourceRating(int id) {
-		String hql = "select count(u.userId) from User u join u.resourceList rl  where rl.resourceId = :resourceIdVar";
+		String hql = "select count(u.userId) from User u join u.likedResources rl  where rl.resourceId = :resourceIdVar";
 		
 		Session s = sf.getCurrentSession();
 		Query query = s.createQuery(hql);
