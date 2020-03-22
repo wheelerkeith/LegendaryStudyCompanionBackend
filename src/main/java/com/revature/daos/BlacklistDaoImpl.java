@@ -32,7 +32,7 @@ public class BlacklistDaoImpl implements BlacklistDao{
 		sub.setId(subject_id);
 		
 		Blacklist b = new Blacklist(compKey, r, sub);
-		b.setStatus("pending");
+		b.setStatus("Pending");
 		
 		Session s = sf.getCurrentSession();
 		BlacklistCompositeKey blacklistCompositeKey = (BlacklistCompositeKey) s.save(b);
