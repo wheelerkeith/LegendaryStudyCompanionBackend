@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -56,17 +57,17 @@ public class Driver {
 //		
 //		
 //		
-//		// testing out that I can create users and that their daos are behaving correctly
-//		System.out.println("-- USER TESTS --------------------------------------------------------------------------");
-//		System.out.println();
-//		User u = new User("jortiz", "pass", "jortiz@mail.com", "Josue Ortiz", 1);
-//		us.addUser(u);
-//		User u2 = new User("oduarte", "2ez", "oduarte@mail.com", "Oscar Duarte", 1);
-//		us.addUser(u2);
-//		User u3 = new User("lolap", "1234", "lolap@mail.com", "Lola Palmer", 0);
-//		us.addUser(u3);
-//		User u4 = new User("jdavis", "abcd", "jdavis@mail.com", "Jake Davis", 0);
-//		us.addUser(u4);
+		// testing out that I can create users and that their daos are behaving correctly
+		System.out.println("-- USER TESTS --------------------------------------------------------------------------");
+		System.out.println();
+		User u = new User("jortiz", "pass", "jortiz@mail.com", "Josue Ortiz", 1);
+		us.addUser(u);
+		User u2 = new User("oduarte", "2ez", "oduarte@mail.com", "Oscar Duarte", 1);
+		us.addUser(u2);
+		User u3 = new User("lolap", "1234", "lolap@mail.com", "Lola Palmer", 0);
+		us.addUser(u3);
+		User u4 = new User("jdavis", "abcd", "jdavis@mail.com", "Jake Davis", 0);
+		us.addUser(u4);
 //		
 //		User u5 = new User();
 //		u5.setUserName("lolap");
@@ -90,18 +91,18 @@ public class Driver {
 ////		System.out.println();
 //		
 //		
-//		// testing out that I can create subjects and that their daos are behaving correctly
-//		System.out.println("-- SUBJECT TESTS -----------------------------------------------------------------------");
-//		System.out.println();
-//		Subject s = new Subject(".Net");		
-//		System.out.println("ADD SUBJECT .NET: " + ss.addSubjectObject(s));
-//		Subject s0 = new Subject("Math");
-//		System.out.println("ADD SUBJECT MATH: " + ss.addSubjectObject(s0));
-//		Subject s1 = new Subject("History");
-//		System.out.println("ADD SUBJECT HISTORY: " + ss.addSubjectObject(s1));
-//		Subject s2 = new Subject("Java");
-//		System.out.println("ADD SUBJECT JAVA: " + ss.addSubjectObject(s2));
-//		System.out.println();
+		// testing out that I can create subjects and that their daos are behaving correctly
+		System.out.println("-- SUBJECT TESTS -----------------------------------------------------------------------");
+		System.out.println();
+		Subject s = new Subject(".Net");		
+		System.out.println("ADD SUBJECT .NET: " + ss.addSubjectObject(s));
+		Subject s0 = new Subject("Math");
+		System.out.println("ADD SUBJECT MATH: " + ss.addSubjectObject(s0));
+		Subject s1 = new Subject("History");
+		System.out.println("ADD SUBJECT HISTORY: " + ss.addSubjectObject(s1));
+		Subject s2 = new Subject("Java");
+		System.out.println("ADD SUBJECT JAVA: " + ss.addSubjectObject(s2));
+		System.out.println();
 //		
 //		System.out.println("GET BY ID 4: " + ss.getSubjectById(4));
 //		System.out.println();
@@ -119,24 +120,24 @@ public class Driver {
 ////		System.out.println();
 //	
 //		
-//		// testing out that I can create resources and that their daos are behaving correctly
-//		System.out.println("-- RESOURCE TESTS ----------------------------------------------------------------------");
-//		System.out.println();
-//		Resource r = new Resource("https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet", s, "Microsoft");
-//		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r));
-//		Resource r0 = new Resource("https://www.wolframalpha.com", s1, "WolframAlpha");
-//		System.out.println("ADD RESOURCE FOR MATH: " + rs.addResource(r0));
-//		Resource r1 = new Resource("https://en.wikipedia.org/wiki/Football_War", s1, "Wikipedia");
-//		System.out.println("ADD RESOURCE FOR C++: " + rs.addResource(r1));
-//		Resource r2 = new Resource("https://www.oracle.com/technetwork/java/javase/jdbc/index.html", s2, "Oracle");
-//		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r2));
-//		Resource r3 = new Resource("https://junit.org/junit5/", s2, "JUnit");
-//		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r3));
-//		Resource r4 = new Resource("https://www.w3schools.com/asp/webpages_intro.asp", s, "W3Schools");
-//		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r4));
-//		Resource r5 = new Resource("https://www.w3schools.com/java/", s2, "W3Schools");
-//		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r5));
-//		System.out.println();
+		// testing out that I can create resources and that their daos are behaving correctly
+		System.out.println("-- RESOURCE TESTS ----------------------------------------------------------------------");
+		System.out.println();
+		Resource r = new Resource("https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet", s, "Microsoft");
+		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r));
+		Resource r0 = new Resource("https://www.wolframalpha.com", s1, "WolframAlpha");
+		System.out.println("ADD RESOURCE FOR MATH: " + rs.addResource(r0));
+		Resource r1 = new Resource("https://en.wikipedia.org/wiki/Football_War", s1, "Wikipedia");
+		System.out.println("ADD RESOURCE FOR C++: " + rs.addResource(r1));
+		Resource r2 = new Resource("https://www.oracle.com/technetwork/java/javase/jdbc/index.html", s2, "Oracle");
+		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r2));
+		Resource r3 = new Resource("https://junit.org/junit5/", s2, "JUnit");
+		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r3));
+		Resource r4 = new Resource("https://www.w3schools.com/asp/webpages_intro.asp", s, "W3Schools");
+		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r4));
+		Resource r5 = new Resource("https://www.w3schools.com/java/", s2, "W3Schools");
+		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r5));
+		System.out.println();
 //		
 //		System.out.println("GET RESOURCE BY ID 3: " + rs.getResourceById(3));
 //		System.out.println();

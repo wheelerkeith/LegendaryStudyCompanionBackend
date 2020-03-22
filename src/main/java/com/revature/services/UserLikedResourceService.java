@@ -2,9 +2,11 @@ package com.revature.services;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.revature.daos.UserLikedResourceDao;
 
+@Service
 public class UserLikedResourceService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");

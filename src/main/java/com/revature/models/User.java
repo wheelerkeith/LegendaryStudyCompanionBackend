@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,13 +46,14 @@ public class User implements Serializable {
 	private int role;
 	
 	// bideractional many-to-many (the join is in the studyset class)
+	//
 	// https://www.javaworld.com/article/3387643/java-persistence-with-jpa-and-hibernate-part-2-many-to-many-relationships.html
 	@Autowired
 	@ManyToMany(mappedBy = "user", fetch=FetchType.EAGER)
 	private List<StudySet> studySets;
 	
 	@Autowired
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinTable(
 			name="user_liked_resource",
 			joinColumns= {@JoinColumn(name="user_id")},

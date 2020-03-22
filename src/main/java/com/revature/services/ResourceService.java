@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.revature.daos.ResourceDao;
 import com.revature.daos.SubjectDao;
+import com.revature.services.UserLikedResourceService;
 import com.revature.models.Resource;
 import com.revature.models.Subject;
 
@@ -18,11 +20,26 @@ public class ResourceService {
 	
 	private static ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 	private static ResourceDao resourceDao = (ResourceDao) ac.getBean("resourceDaoImpl");
+	private static UserLikedResourceService likedResService = (UserLikedResourceService) ac.getBean("userLikedResourceService");
 	private static SubjectDao subjectDao = (SubjectDao) ac.getBean("subjectDaoImpl");
 	private static ApiService apiService = (ApiService) ac.getBean("apiService");
+	private static SubjectService subjectService = (SubjectService) ac.getBean("subjectService");
 	
 	// add new resource
 	public int addResource(Resource r) {
+		
+		// Check for subject in DB
+		Subject sub = subjectService.getSubjectByName(r.getSubject().getName());
+		
+		System.out.println(sub);
+		
+		// If subject DNE then create it
+		if (sub != null) {
+			r.setSubject(sub);
+		} else {
+			r.getSubject().setId(subjectService.addSubjectByName(r.getSubject().getName()));
+		}
+		
 		return resourceDao.addResource(r);
 	}
 	
@@ -76,6 +93,7 @@ public class ResourceService {
 		// Populate list from saved resources first
 		for(Resource r : dbResources) {
 			if(resources.size() < listSize) {
+				r.setLikeCount(likedResService.getResourceRating(r.getResourceId()));
 				resources.add(r);
 			}
 		}
