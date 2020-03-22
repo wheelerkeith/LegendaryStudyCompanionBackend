@@ -122,19 +122,19 @@ public class Driver {
 //		// testing out that I can create resources and that their daos are behaving correctly
 //		System.out.println("-- RESOURCE TESTS ----------------------------------------------------------------------");
 //		System.out.println();
-//		Resource r = new Resource("https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet", s);
+//		Resource r = new Resource("https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet", s, "Microsoft");
 //		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r));
-//		Resource r0 = new Resource("https://www.wolframalpha.com", s1);
+//		Resource r0 = new Resource("https://www.wolframalpha.com", s1, "WolframAlpha");
 //		System.out.println("ADD RESOURCE FOR MATH: " + rs.addResource(r0));
-//		Resource r1 = new Resource("https://en.wikipedia.org/wiki/Football_War", s1);
+//		Resource r1 = new Resource("https://en.wikipedia.org/wiki/Football_War", s1, "Wikipedia");
 //		System.out.println("ADD RESOURCE FOR C++: " + rs.addResource(r1));
-//		Resource r2 = new Resource("https://www.oracle.com/technetwork/java/javase/jdbc/index.html", s2);
+//		Resource r2 = new Resource("https://www.oracle.com/technetwork/java/javase/jdbc/index.html", s2, "Oracle");
 //		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r2));
-//		Resource r3 = new Resource("https://junit.org/junit5/", s2);
+//		Resource r3 = new Resource("https://junit.org/junit5/", s2, "JUnit");
 //		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r3));
-//		Resource r4 = new Resource("https://www.w3schools.com/asp/webpages_intro.asp", s);
+//		Resource r4 = new Resource("https://www.w3schools.com/asp/webpages_intro.asp", s, "W3Schools");
 //		System.out.println("ADD RESOURCE FOR .NET: " + rs.addResource(r4));
-//		Resource r5 = new Resource("https://www.w3schools.com/java/", s2);
+//		Resource r5 = new Resource("https://www.w3schools.com/java/", s2, "W3Schools");
 //		System.out.println("ADD RESOURCE FOR JAVA: " + rs.addResource(r5));
 //		System.out.println();
 //		

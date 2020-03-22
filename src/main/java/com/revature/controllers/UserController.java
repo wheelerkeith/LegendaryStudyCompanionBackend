@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class UserController {
 	// looking to receive JSON like this:
 	// {"userName":"gracet","password":"987","email":"gracet@mail.com","fullName":"Grace Trueman","role":1}
 	@RequestMapping(method=RequestMethod.POST)
+	@CrossOrigin
 	@ResponseBody
 	public ResponseEntity<String> addUser(@RequestBody User u) {
 		userService.addUser(u);
@@ -36,6 +38,7 @@ public class UserController {
 	// GET - get all users (/user)
 	// get all usrs
 	@RequestMapping(method=RequestMethod.GET)
+	@CrossOrigin
 	@ResponseBody
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
@@ -43,6 +46,7 @@ public class UserController {
 	
 	// GET - get user by id (/user/id)
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	@CrossOrigin
 	@ResponseBody
 	public User getUserById(@PathVariable("id")int id) {
 		return userService.getUserById(id);
@@ -50,6 +54,7 @@ public class UserController {
 
 	// PUT - update user. expects to recieve update user in JSON (/user/id)
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
+	@CrossOrigin
 	@ResponseBody
 	public ResponseEntity<User> updateUser(@PathVariable("id")int id, @RequestBody User user) {
 		user.setUserId(id);
@@ -59,6 +64,7 @@ public class UserController {
 	
 	// DELETE - delete user from db by id (/user/id)
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	@CrossOrigin
 	@ResponseBody
 	public ResponseEntity<User> deleteUser(@PathVariable("id")int id) {
 		userService.removeUser(id);
