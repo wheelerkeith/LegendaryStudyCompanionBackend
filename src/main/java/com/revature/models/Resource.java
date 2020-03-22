@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,10 +33,11 @@ public class Resource implements Serializable{
 	private int resourceId;
 	
 	private String title;
-	
 	private String source;
-	
 	private String url;
+	
+	@Transient
+	private int likeCount = 0;
 	
 	@Autowired
 	@ManyToOne
@@ -49,7 +51,6 @@ public class Resource implements Serializable{
 			joinColumns = { @JoinColumn(name = "resource_id")},
 			inverseJoinColumns = { @JoinColumn(name = "studyset_id")})
 	private List<StudySet> studySet;
-	
 	
 	public Resource() {
 		super();
@@ -95,6 +96,13 @@ public class Resource implements Serializable{
 		this.url = url;
 	}
 
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 
 	public Subject getSubject() {
 		return subject;
@@ -117,6 +125,7 @@ public class Resource implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+//		result = prime * result + likeCount;
 		result = prime * result + resourceId;
 		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
@@ -135,6 +144,10 @@ public class Resource implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
+//		if (likeCount != other.likeCount)
+//			return false;
+		
+		
 		if (resourceId != other.resourceId)
 			return false;
 		if (source == null) {
@@ -168,7 +181,7 @@ public class Resource implements Serializable{
 	@Override
 	public String toString() {
 		return "Resource [resourceId=" + resourceId + ", title=" + title + ", source=" + source + ", url=" + url
-				+ ", subject=" + subject + ", studySet=" + studySet + "]";
+				+ ", likeCount=" + likeCount + ", subject=" + subject + ", studySet=" + studySet + "]";
 	}
 
 }
