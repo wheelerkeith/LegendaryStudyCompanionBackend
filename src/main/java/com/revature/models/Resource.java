@@ -52,7 +52,6 @@ public class Resource implements Serializable{
 			inverseJoinColumns = { @JoinColumn(name = "studyset_id")})
 	private List<StudySet> studySet;
 	
-	
 	public Resource() {
 		super();
 	}
@@ -126,7 +125,7 @@ public class Resource implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + likeCount;
+//		result = prime * result + likeCount;
 		result = prime * result + resourceId;
 		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
@@ -145,8 +144,10 @@ public class Resource implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
-		if (likeCount != other.likeCount)
-			return false;
+//		if (likeCount != other.likeCount)
+//			return false;
+		
+		
 		if (resourceId != other.resourceId)
 			return false;
 		if (source == null) {

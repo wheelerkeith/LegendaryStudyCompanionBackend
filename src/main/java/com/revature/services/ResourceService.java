@@ -31,8 +31,6 @@ public class ResourceService {
 		// Check for subject in DB
 		Subject sub = subjectService.getSubjectByName(r.getSubject().getName());
 		
-		System.out.println(sub);
-		
 		// If subject DNE then create it
 		if (sub != null) {
 			r.setSubject(sub);

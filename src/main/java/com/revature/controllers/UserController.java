@@ -1,7 +1,9 @@
 package com.revature.controllers;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +40,7 @@ public class UserController {
 		return new ResponseEntity<>("added user "+u.getFullName(),HttpStatus.CREATED);
 	}
 	
-	// POST - update user saved resources. expects to recieve update user in JSON (/user/id)
+	// POST - update user saved resources. expects to recieve update user in JSON (/user/id/resources)
 	@RequestMapping(method=RequestMethod.POST, value="/{id}/resources")
 	@CrossOrigin
 	@ResponseBody
@@ -46,8 +48,6 @@ public class UserController {
 		
 		// Pull user and resource info from the database
 		User u = userService.getUserById(id);
-		
-		System.out.println(u);
 		
 		// Update the user list with the resource
 		int success = userService.addResourceToList(u, resource);
@@ -78,12 +78,12 @@ public class UserController {
 	@RequestMapping(method=RequestMethod.GET, value="/{id}/resources")
 	@CrossOrigin
 	@ResponseBody
-	public List<Resource> getUserLikedResourcesById(@PathVariable("id")int id) {
+	public Set<Resource> getUserLikedResourcesById(@PathVariable("id")int id) {
 		User u = userService.getUserById(id);
 		if (u != null) {			
 			return u.getResourceList();
 		}
-		return new ArrayList<Resource>();
+		return new HashSet<Resource>();
 	}
 
 	// PUT - update user. expects to recieve update user in JSON (/user/id)
@@ -104,4 +104,21 @@ public class UserController {
 		userService.removeUser(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	// DELETE - delete user liked resource from db by id (/user/id/resources)
+		@RequestMapping(method=RequestMethod.DELETE, value="/{id}/resources")
+		@CrossOrigin
+		@ResponseBody
+		public ResponseEntity<User> deleteUserLikedResources(@PathVariable("id")int id, @RequestBody Resource resource) {
+			
+			// Pull user and resource info from the database
+			User u = userService.getUserById(id);
+			
+			// Update the user list with the resource
+			int success = userService.deleteFromResourceList(u, resource);
+			if (success != 0) {
+				return new ResponseEntity<>(HttpStatus.OK);			
+			}
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 }
