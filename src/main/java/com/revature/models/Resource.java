@@ -33,6 +33,8 @@ public class Resource implements Serializable{
 	
 	private String title;
 	
+	private String source;
+	
 	private String url;
 	
 	@ManyToOne
@@ -51,9 +53,10 @@ public class Resource implements Serializable{
 		super();
 	}
 	
-	public Resource(String url, Subject subject) {
+	public Resource(String url, Subject subject, String source) {
 		this.url = url;
 		this.subject = subject;
+		this.source = source;
 	}
 
 	public int getResourceId() {
@@ -71,6 +74,14 @@ public class Resource implements Serializable{
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
 	}
 
 	public String getUrl() {
@@ -105,6 +116,7 @@ public class Resource implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + resourceId;
+		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -122,6 +134,11 @@ public class Resource implements Serializable{
 			return false;
 		Resource other = (Resource) obj;
 		if (resourceId != other.resourceId)
+			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
 			return false;
 		if (studySet == null) {
 			if (other.studySet != null)
@@ -148,10 +165,8 @@ public class Resource implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Resource [resourceId=" + resourceId + ", title=" + title + ", url=" + url + ", subject=" + subject
-				+ ", studySet=" + studySet + "]";
+		return "Resource [resourceId=" + resourceId + ", title=" + title + ", source=" + source + ", url=" + url
+				+ ", subject=" + subject + ", studySet=" + studySet + "]";
 	}
-
-	
 
 }

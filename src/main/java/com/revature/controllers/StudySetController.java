@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class StudySetController {
 	// loking to recieve JSON like the followig:
 	// {"name":"Intro to Karate","user":[{"userId":4}]}
 	@RequestMapping(method=RequestMethod.POST)
+	@CrossOrigin
 	@ResponseBody
 	public ResponseEntity<String> addStudySet(@RequestBody StudySet studySet) {
 		studySetService.addStudySet(studySet);
@@ -35,6 +37,7 @@ public class StudySetController {
 	
 	// GET - get all study sets (/studyset)
 	@RequestMapping(method=RequestMethod.GET)
+	@CrossOrigin
 	@ResponseBody
 	public List<StudySet> getAllStudySets() {
 		return studySetService.getAllStudySets();
@@ -42,6 +45,7 @@ public class StudySetController {
 	
 	// GET - get studyset by id (/studyset/id)
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	@CrossOrigin
 	@ResponseBody
 	public StudySet getStudySetById(@PathVariable("id")int id) {
 		return studySetService.getStudySetById(id);
@@ -51,6 +55,7 @@ public class StudySetController {
 	// looking for URL like:
 	// localhost:8080/LegendaryStudyCompanionBackend/studyset/5:Advanced DODA
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}:{name}")
+	@CrossOrigin
 	@ResponseBody
 	public ResponseEntity<String> updateStudySet(@PathVariable("id")int id, @PathVariable("name")String name) {
 		studySetService.updateStudySet(id, name);
@@ -59,6 +64,7 @@ public class StudySetController {
 	
 	// DELETE - delete studySet (/studyset/id)
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	@CrossOrigin
 	@ResponseBody
 	public ResponseEntity<String> removeStudySet(@PathVariable("id")int id) {
 		studySetService.removeStudySet(id);
