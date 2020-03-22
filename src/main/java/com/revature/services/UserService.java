@@ -80,7 +80,7 @@ public class UserService {
 	public int findResourceInLikedList(User u, Resource r) {
 		int found = 0;
 		
-		for (Resource r0 : u.getLikedResources()) {
+		for (Resource r0 : u.getResourceList()) {
 			if (r0 == r) {
 				found = 1;
 			}			
