@@ -29,17 +29,19 @@ public class LoginController {
 	// Header: "Content-Type", "application/json"
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<String> authenticateUser(@RequestBody User user) {
+	public ResponseEntity<User> authenticateUser(@RequestBody User user) {
 		User validUser = userService.validateUser(user);
 		
+		System.out.println(user);
+		
 		// followed example found in  org.springframework.http.ResponseEntity<String> documentation
-		if(validUser != null && validUser.getUserId() > 0) {
+		if(validUser != null && validUser.getUserId() != 0) {
 			String token = validUser.getUserId() + ":" + validUser.getRole();
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.set("Authorization", token);
-			return new ResponseEntity<>("user authorized", responseHeaders, HttpStatus.OK);
+			return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
 		} else
-			return new ResponseEntity<>("credentials not valid", HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
 
 }
