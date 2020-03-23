@@ -14,6 +14,7 @@ import com.revature.daos.SubjectDao;
 import com.revature.services.UserLikedResourceService;
 import com.revature.models.Resource;
 import com.revature.models.Subject;
+import com.revature.models.User;
 
 @Service
 public class ResourceService {
@@ -82,7 +83,7 @@ public class ResourceService {
 		return r;
 	}
 	
-	public List<Resource> getResourceList(String query, int listSize) {
+	public List<Resource> getResourceList(String query, int listSize, User u) {
 		List<Resource> resources = new ArrayList<>();
 		
 		// TODO: Add limit to dbResources so not pulling ALL at once
@@ -92,6 +93,7 @@ public class ResourceService {
 		for(Resource r : dbResources) {
 			if(resources.size() < listSize) {
 				r.setLikeCount(likedResService.getResourceRating(r.getResourceId()));
+				r.setSaved(likedResService.isSaved(u, r.getResourceId()));
 				resources.add(r);
 			}
 		}
@@ -117,12 +119,14 @@ public class ResourceService {
 				Resource wikiRes = makeResourceFromMap(wikipediaResults, currentIndex);
 				if(!checkDuplicateResource(wikiRes)) {
 					wikiRes.setSubject(sub);
+					wikiRes.setSource("Wikipedia");
 					resources.add(wikiRes);
 				}
 				
 				Resource googleRes = makeResourceFromMap(googleBooksResults, currentIndex);
 				if(!checkDuplicateResource(googleRes)) {
 					googleRes.setSubject(sub);
+					googleRes.setSource("GoogleBooks");
 					resources.add(googleRes);
 				}
 				
