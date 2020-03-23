@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -56,7 +57,11 @@ public class ResourceService {
 	
 	// get all resources
 	public List<Resource> getAllResources() {
-		return resourceDao.getAllResources();
+		List<Resource> rList = resourceDao.getAllResources();
+		for(Resource r : rList) {
+			r.setUserList(null);			
+		}
+		return rList;
 	}
 	
 	// update resource
@@ -85,11 +90,11 @@ public class ResourceService {
 		return r;
 	}
 	
-	public List<Resource> getResourceList(String query, int listSize, User u) {
+	public List<Resource> getResourceList(String query, int listSize, User u, String[] filters) {
 		List<Resource> resources = new ArrayList<>();
 		
 		// TODO: Add limit to dbResources so not pulling ALL at once
-		List<Resource> dbResources = resourceDao.getResourcesBySubjectName(query);
+		List<Resource> dbResources = resourceDao.getResourcesBySubjectName(query, filters);
 		
 		// Populate list from saved resources first
 		for(Resource r : dbResources) {
@@ -102,8 +107,6 @@ public class ResourceService {
 				resources.add(r);
 			}
 		}
-		
-		System.out.println(resources);
 		
 		// If list is still too small then populate from APIs
 		if (resources.size() < listSize) {
@@ -123,18 +126,22 @@ public class ResourceService {
 			while(resources.size() < listSize && currentIndex < listSize) {
 				
 				// TODO: Check if resource is blacklisted
-				Resource wikiRes = makeResourceFromMap(wikipediaResults, currentIndex);
-				if(!checkDuplicateResource(wikiRes)) {
-					wikiRes.setSubject(sub);
-					wikiRes.setSource("Wikipedia");
-					resources.add(wikiRes);
+				if ((filters == null || Arrays.asList(filters).contains("Wikipedia")) && currentIndex < googleBooksResults.size()) {
+					Resource wikiRes = makeResourceFromMap(wikipediaResults, currentIndex);
+					if(!checkDuplicateResource(wikiRes) && (filters == null || Arrays.asList(filters).contains("Wikipedia"))) {
+						wikiRes.setSubject(sub);
+						wikiRes.setSource("Wikipedia");
+						resources.add(wikiRes);
+					}
 				}
 				
-				Resource googleRes = makeResourceFromMap(googleBooksResults, currentIndex);
-				if(!checkDuplicateResource(googleRes)) {
-					googleRes.setSubject(sub);
-					googleRes.setSource("GoogleBooks");
-					resources.add(googleRes);
+				if ((filters == null || Arrays.asList(filters).contains("Google Books")) && currentIndex < googleBooksResults.size()) {
+					Resource googleRes = makeResourceFromMap(googleBooksResults, currentIndex);
+					if(!checkDuplicateResource(googleRes)) {
+						googleRes.setSubject(sub);
+						googleRes.setSource("Google Books");
+						resources.add(googleRes);
+					}
 				}
 				
 				currentIndex++;

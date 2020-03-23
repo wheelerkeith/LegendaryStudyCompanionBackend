@@ -106,19 +106,19 @@ public class UserController {
 	}
 	
 	// DELETE - delete user liked resource from db by id (/user/id/resources)
-		@RequestMapping(method=RequestMethod.DELETE, value="/{id}/resources")
-		@CrossOrigin(origins="*")
-		@ResponseBody
-		public ResponseEntity<User> deleteUserLikedResources(@PathVariable("id")int id, @RequestBody Resource resource) {
-			
-			// Pull user and resource info from the database
-			User u = userService.getUserById(id);
-			
-			// Update the user list with the resource
-			int success = userService.deleteFromResourceList(u, resource);
-			if (success != 0) {
-				return new ResponseEntity<>(HttpStatus.OK);			
-			}
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	@RequestMapping(method=RequestMethod.DELETE, value="/{id}/resources")
+	@CrossOrigin(origins="*")
+	@ResponseBody
+	public ResponseEntity<User> deleteUserLikedResources(@PathVariable("id")int id, @RequestBody Resource resource) {
+		
+		// Pull user and resource info from the database
+		User u = userService.getUserById(id);
+		
+		// Update the user list with the resource
+		int success = userService.deleteFromResourceList(u, resource);
+		if (success != 0) {
+			return new ResponseEntity<>(HttpStatus.OK);			
 		}
+		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }
