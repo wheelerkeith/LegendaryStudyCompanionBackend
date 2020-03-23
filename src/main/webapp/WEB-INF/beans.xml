@@ -33,9 +33,9 @@
 	
 	<!-- define three beans we need for spring orm -->
 	<bean id="ourDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="url" value="#{ systemEnvironment['DB_HOST'] }"></property>
-		<property name="username" value="#{ systemEnvironment['DB_USER'] }"></property>
-		<property name="password" value="#{ systemEnvironment['DB_PASS'] }"></property>
+		<property name="url" value="jdbc:postgresql://revaturedb.cmvrnfahyjyr.us-east-2.rds.amazonaws.com:5432/postgres"></property>
+		<property name="username" value="postgres"></property>
+		<property name="password" value="12345678"></property>
 		<property name="driverClassName" value="org.postgresql.Driver"></property>
 	</bean>
 	
