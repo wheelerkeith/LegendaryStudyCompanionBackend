@@ -29,18 +29,4 @@ public class DriverTest {
 		
 		assertEquals(0, ud.addUser(user));
 	}
-	
-	@Test
-	public void testGetUser() {
-		User user = new User("billybob@gmail.com", "1234", "billybob@gmail.com");
-		User testUser = ud.getUserById(0);
-		
-		assertEquals(user, testUser);
-	}
-	
-	@Test
-	public void testDeleteUser() {
-		assertEquals(1, ud.removeUser(0));
-	}
-
 }
