@@ -39,6 +39,9 @@ public class Resource implements Serializable{
 	@Transient
 	private int likeCount = 0;
 	
+	@Transient
+	private boolean saved = false;
+	
 	@Autowired
 	@ManyToOne
 	@JoinColumn(name="subject_id")
@@ -104,6 +107,14 @@ public class Resource implements Serializable{
 		this.likeCount = likeCount;
 	}
 
+	public boolean isSaved() {
+		return saved;
+	}
+
+	public void setSaved(boolean saved) {
+		this.saved = saved;
+	}
+
 	public Subject getSubject() {
 		return subject;
 	}
@@ -125,8 +136,9 @@ public class Resource implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-//		result = prime * result + likeCount;
+		result = prime * result + likeCount;
 		result = prime * result + resourceId;
+		result = prime * result + (saved ? 1231 : 1237);
 		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
@@ -144,11 +156,11 @@ public class Resource implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
-//		if (likeCount != other.likeCount)
-//			return false;
-		
-		
+		if (likeCount != other.likeCount)
+			return false;
 		if (resourceId != other.resourceId)
+			return false;
+		if (saved != other.saved)
 			return false;
 		if (source == null) {
 			if (other.source != null)
@@ -181,7 +193,8 @@ public class Resource implements Serializable{
 	@Override
 	public String toString() {
 		return "Resource [resourceId=" + resourceId + ", title=" + title + ", source=" + source + ", url=" + url
-				+ ", likeCount=" + likeCount + ", subject=" + subject + ", studySet=" + studySet + "]";
+				+ ", likeCount=" + likeCount + ", saved=" + saved + ", subject=" + subject + ", studySet=" + studySet
+				+ "]";
 	}
 
 }
