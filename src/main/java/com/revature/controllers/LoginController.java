@@ -29,8 +29,8 @@ public class LoginController {
 	// {"userName":"lolap","password":"1234","email":""}
 	// Header: "Content-Type", "application/json"
 	@RequestMapping(method=RequestMethod.POST)
+	@CrossOrigin(origins="*", exposedHeaders = {"Authorization"})
 	@ResponseBody
-	@CrossOrigin(origins="*")
 	public ResponseEntity<User> authenticateUser(@RequestBody User user) {
 		User validUser = userService.validateUser(user);
 		

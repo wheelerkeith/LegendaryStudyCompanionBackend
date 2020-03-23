@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -39,6 +40,9 @@ public class Resource implements Serializable{
 	@Transient
 	private int likeCount = 0;
 	
+	@Transient
+	private boolean saved = false;
+	
 	@Autowired
 	@ManyToOne
 	@JoinColumn(name="subject_id")
@@ -51,6 +55,9 @@ public class Resource implements Serializable{
 			joinColumns = { @JoinColumn(name = "resource_id")},
 			inverseJoinColumns = { @JoinColumn(name = "studyset_id")})
 	private List<StudySet> studySet;
+	
+	@ManyToMany(mappedBy = "resourceList", fetch=FetchType.LAZY)
+    private List<User> userList = new ArrayList<>();
 	
 	public Resource() {
 		super();
@@ -104,6 +111,14 @@ public class Resource implements Serializable{
 		this.likeCount = likeCount;
 	}
 
+	public boolean isSaved() {
+		return saved;
+	}
+
+	public void setSaved(boolean saved) {
+		this.saved = saved;
+	}
+
 	public Subject getSubject() {
 		return subject;
 	}
@@ -121,17 +136,27 @@ public class Resource implements Serializable{
 		this.studySet = studySet;
 	}
 
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-//		result = prime * result + likeCount;
+		result = prime * result + likeCount;
 		result = prime * result + resourceId;
+		result = prime * result + (saved ? 1231 : 1237);
 		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		result = prime * result + ((studySet == null) ? 0 : studySet.hashCode());
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime * result + ((userList == null) ? 0 : userList.hashCode());
 		return result;
 	}
 
@@ -144,11 +169,11 @@ public class Resource implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
-//		if (likeCount != other.likeCount)
-//			return false;
-		
-		
+		if (likeCount != other.likeCount)
+			return false;
 		if (resourceId != other.resourceId)
+			return false;
+		if (saved != other.saved)
 			return false;
 		if (source == null) {
 			if (other.source != null)
@@ -175,13 +200,19 @@ public class Resource implements Serializable{
 				return false;
 		} else if (!url.equals(other.url))
 			return false;
+		if (userList == null) {
+			if (other.userList != null)
+				return false;
+		} else if (!userList.equals(other.userList))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Resource [resourceId=" + resourceId + ", title=" + title + ", source=" + source + ", url=" + url
-				+ ", likeCount=" + likeCount + ", subject=" + subject + ", studySet=" + studySet + "]";
+				+ ", likeCount=" + likeCount + ", saved=" + saved + ", subject=" + subject + ", studySet=" + studySet
+				+ "]";
 	}
 
 }
