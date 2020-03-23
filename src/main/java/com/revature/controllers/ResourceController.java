@@ -24,7 +24,7 @@ public class ResourceController {
 	private ResourceService resourceService;
 	
 	@RequestMapping(method=RequestMethod.POST)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<String> addResource(@RequestBody Resource resource) {
 		resourceService.addResource(resource);
@@ -33,7 +33,7 @@ public class ResourceController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public List<Resource> getAllResources(@RequestParam(name="q", required=false) String q){
 		if (q != null) {

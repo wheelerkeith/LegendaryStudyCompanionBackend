@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloWorldController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/home")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public String returnHomePage() {
 		return "Hello World";

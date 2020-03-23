@@ -33,16 +33,16 @@ public class UserController {
 	// looking to receive JSON like this:
 	// {"userName":"gracet","password":"987","email":"gracet@mail.com","fullName":"Grace Trueman","role":1}
 	@RequestMapping(method=RequestMethod.POST)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
-	public ResponseEntity<String> addUser(@RequestBody User u) {
+	public ResponseEntity<User> addUser(@RequestBody User u) {
 		userService.addUser(u);
-		return new ResponseEntity<>("added user "+u.getFullName(),HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	// POST - update user saved resources. expects to recieve update user in JSON (/user/id/resources)
 	@RequestMapping(method=RequestMethod.POST, value="/{id}/resources")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<User> updateUserLikedResources(@PathVariable("id")int id, @RequestBody Resource resource) {
 		
@@ -60,7 +60,7 @@ public class UserController {
 	// GET - get all users (/user)
 	// get all usrs
 	@RequestMapping(method=RequestMethod.GET)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
@@ -68,7 +68,7 @@ public class UserController {
 	
 	// GET - get user by id (/user/id)
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public User getUserById(@PathVariable("id")int id) {
 		return userService.getUserById(id);
@@ -76,7 +76,7 @@ public class UserController {
 	
 	// GET - get user saved resources by user id (/user/id/resources)
 	@RequestMapping(method=RequestMethod.GET, value="/{id}/resources")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public Set<Resource> getUserLikedResourcesById(@PathVariable("id")int id) {
 		User u = userService.getUserById(id);
@@ -88,7 +88,7 @@ public class UserController {
 
 	// PUT - update user. expects to recieve update user in JSON (/user/id)
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<User> updateUser(@PathVariable("id")int id, @RequestBody User user) {
 		user.setUserId(id);
@@ -98,7 +98,7 @@ public class UserController {
 	
 	// DELETE - delete user from db by id (/user/id)
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<User> deleteUser(@PathVariable("id")int id) {
 		userService.removeUser(id);
@@ -107,7 +107,7 @@ public class UserController {
 	
 	// DELETE - delete user liked resource from db by id (/user/id/resources)
 		@RequestMapping(method=RequestMethod.DELETE, value="/{id}/resources")
-		@CrossOrigin
+		@CrossOrigin(origins="*")
 		@ResponseBody
 		public ResponseEntity<User> deleteUserLikedResources(@PathVariable("id")int id, @RequestBody Resource resource) {
 			
