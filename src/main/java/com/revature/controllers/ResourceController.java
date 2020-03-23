@@ -40,11 +40,22 @@ public class ResourceController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET)
-	@CrossOrigin(origins="*")
+	@CrossOrigin(origins="*", allowedHeaders = "*")
 	@ResponseBody
-	public List<Resource> getAllResources(@RequestParam(name="q", required=false) String q, @RequestHeader("Authorization") String token){
+	public List<Resource> getAllResources(@RequestParam(name="q", required=false) String q, @RequestParam(name="filters", required=false) String filters, @RequestHeader("Authorization") String token){
 		if (q != null) {
 			int uId = Integer.parseInt(token.split(":")[0]);
+			
+			String[] filterArr = null;
+			
+			System.out.println(filters);
+			
+			if (!"null".equals(filters) && !"".equals(filters)) {
+				filterArr = filters.split(":");
+				if (filterArr[0] == null) {
+					filterArr = null;
+				}
+			}
 			
 			User u = userService.getUserById(uId);
 			
@@ -52,7 +63,7 @@ public class ResourceController {
 				return new ArrayList<>();
 			}
 			
-			return resourceService.getResourceList(q, 10, u);
+			return resourceService.getResourceList(q, 10, u, filterArr);
 		}
 		return resourceService.getAllResources();
 	}

@@ -1,5 +1,6 @@
 package com.revature.daos;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -55,9 +56,21 @@ public class ResourceDaoImpl implements ResourceDao{
 	// get resources by subject name
 	@Transactional
 	@Override
-	public List<Resource> getResourcesBySubjectName(String subject) {
+	public List<Resource> getResourcesBySubjectName(String subject, String[] filters) {
 //		String hql = "select count(u.userId) as likes, r from Resource r inner join r.subject rs inner join r.userList u where rs.name = :resourceSubjectVar group by r.resourceId order by likes";
-		String hql = "select r from Resource r inner join r.subject rs where rs.name = :resourceSubjectVar order by size(r.userList) desc";
+		
+		String filterStr = "";
+		
+		if (filters != null) {
+			filterStr += "and (r.source = '";	
+			for(int i = 0; i < filters.length;i++) {
+				filterStr += filters[i] + "' or r.source = '";
+			}
+			filterStr = filterStr.substring(0, filterStr.length()-15);
+			filterStr += ") ";
+		}
+		
+		String hql = "select r from Resource r inner join r.subject rs where rs.name = :resourceSubjectVar " + filterStr + "order by size(r.userList) desc";
 		
 		Session s = sf.getCurrentSession();
 		Query query = s.createQuery(hql);

@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -55,6 +56,13 @@ public class UserService {
 		}
 		
 		userToReturn.setPassword("");
+		
+		Iterator<Resource> resIt = userToReturn.getResourceList().iterator();
+		
+		while (resIt.hasNext()) {
+			Resource r = resIt.next();
+			r.setUserList(null);
+		}
 		
 		return userToReturn;
 	}
