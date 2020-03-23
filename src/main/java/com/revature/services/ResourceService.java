@@ -85,15 +85,6 @@ public class ResourceService {
 		return r;
 	}
 	
-	private List<Resource> sortResourcesByLikeCount(List<Resource> resources) {
-		
-		Comparator<Resource> compareByLikeCount = (Resource o1, Resource o2) -> Integer.compare(o1.getLikeCount(), o2.getLikeCount());
-		
-		Collections.sort(resources, compareByLikeCount.reversed());
-		
-		return resources;
-	}
-	
 	public List<Resource> getResourceList(String query, int listSize, User u) {
 		List<Resource> resources = new ArrayList<>();
 		
@@ -102,6 +93,9 @@ public class ResourceService {
 		
 		// Populate list from saved resources first
 		for(Resource r : dbResources) {
+			
+			r.setUserList(null);
+			
 			if(resources.size() < listSize) {
 				r.setLikeCount(likedResService.getResourceRating(r.getResourceId()));
 				r.setSaved(likedResService.isSaved(u, r.getResourceId()));
@@ -109,7 +103,7 @@ public class ResourceService {
 			}
 		}
 		
-		resources = sortResourcesByLikeCount(resources);
+		System.out.println(resources);
 		
 		// If list is still too small then populate from APIs
 		if (resources.size() < listSize) {

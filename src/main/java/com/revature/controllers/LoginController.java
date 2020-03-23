@@ -5,6 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,7 @@ public class LoginController {
 	// {"userName":"lolap","password":"1234","email":""}
 	// Header: "Content-Type", "application/json"
 	@RequestMapping(method=RequestMethod.POST)
+	@CrossOrigin(exposedHeaders = {"Authorization"})
 	@ResponseBody
 	public ResponseEntity<String> authenticateUser(@RequestBody User user) {
 		User validUser = userService.validateUser(user);
@@ -36,10 +38,11 @@ public class LoginController {
 		if(validUser != null && validUser.getUserId() > 0) {
 			String token = validUser.getUserId() + ":" + validUser.getRole();
 			HttpHeaders responseHeaders = new HttpHeaders();
-			responseHeaders.set("Authorization", token);
-			return new ResponseEntity<>("user authorized", responseHeaders, HttpStatus.OK);
-		} else
-			return new ResponseEntity<>("credentials not valid", HttpStatus.UNAUTHORIZED);
+			responseHeaders.add("Authorization", token);
+			return new ResponseEntity<>("", responseHeaders, HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>("credentials not valid", HttpStatus.UNAUTHORIZED);
 	}
 
 }

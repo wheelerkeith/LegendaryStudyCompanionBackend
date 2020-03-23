@@ -55,7 +55,7 @@ public class User implements Serializable {
 //	private List<StudySet> studySets;
 	
 	@Autowired
-	@ManyToMany(cascade= {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 			name="user_liked_resource",
 			joinColumns= {@JoinColumn(name="user_id")},

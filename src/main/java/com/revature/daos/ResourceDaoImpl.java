@@ -56,7 +56,8 @@ public class ResourceDaoImpl implements ResourceDao{
 	@Transactional
 	@Override
 	public List<Resource> getResourcesBySubjectName(String subject) {
-		String hql = "select r from Resource r inner join r.subject rs where rs.name = :resourceSubjectVar";
+//		String hql = "select count(u.userId) as likes, r from Resource r inner join r.subject rs inner join r.userList u where rs.name = :resourceSubjectVar group by r.resourceId order by likes";
+		String hql = "select r from Resource r inner join r.subject rs where rs.name = :resourceSubjectVar order by size(r.userList) desc";
 		
 		Session s = sf.getCurrentSession();
 		Query query = s.createQuery(hql);
