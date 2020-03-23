@@ -1,31 +1,32 @@
 package com.revature;
 
-import static org.junit.Assert.assertEquals;
-
-import org.hibernate.Session;
-import org.junit.Test;
-
-import com.revature.models.User;
-import com.revature.services.UserService;
-
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertNotNull;
+//
+//import org.hibernate.Session;
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.mockito.runners.MockitoJUnitRunner;
+//
+//import com.revature.daos.UserDao;
+//import com.revature.models.User;
+//import com.revature.services.UserService;
+//
+//@RunWith(MockitoJUnitRunner.class)
 public class DriverTest {
 	
-	private static UserService us = new UserService();
-	
-	
-	@Test
-	public void testSomething() {
-		
-		//need to update with new connection settings
-//		User u = new User("bluefort", "pass123", "bfort@mail.com", "Blueford Fortinbras", 0);
-//		int userId = us.addUser(u);
+//	@InjectMocks
+//	private UserService us;
+//	
+//	@Mock
+//	private UserDao ud;
+//	
+//	@Test
+//	public void testAddUser() {
+//		User user = new User("billybob@gmail.com", "1234", "billybob@gmail.com");
 //		
-//		u.setPassword("");
-//		
-//		System.out.println(u);
-//		System.out.println(us.getUserById(userId));
-//		
-//		assertEquals(u, us.getUserById(userId));
-	}
-
+//		assertEquals(0, ud.addUser(user));
+//	}
 }
