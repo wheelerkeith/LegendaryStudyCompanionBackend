@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -54,6 +55,9 @@ public class Resource implements Serializable{
 			joinColumns = { @JoinColumn(name = "resource_id")},
 			inverseJoinColumns = { @JoinColumn(name = "studyset_id")})
 	private List<StudySet> studySet;
+	
+	@ManyToMany(mappedBy = "resourceList", fetch=FetchType.LAZY)
+    private List<User> userList = new ArrayList<>();
 	
 	public Resource() {
 		super();
@@ -132,6 +136,14 @@ public class Resource implements Serializable{
 		this.studySet = studySet;
 	}
 
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -144,6 +156,7 @@ public class Resource implements Serializable{
 		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
+		result = prime * result + ((userList == null) ? 0 : userList.hashCode());
 		return result;
 	}
 
@@ -186,6 +199,11 @@ public class Resource implements Serializable{
 			if (other.url != null)
 				return false;
 		} else if (!url.equals(other.url))
+			return false;
+		if (userList == null) {
+			if (other.userList != null)
+				return false;
+		} else if (!userList.equals(other.userList))
 			return false;
 		return true;
 	}
