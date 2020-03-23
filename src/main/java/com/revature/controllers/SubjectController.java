@@ -29,7 +29,7 @@ public class SubjectController {
 	// FORM: "Content-Type", "application/x-www-form-urlencoded"
 	// FORM DATA: "name=Python"
 	@RequestMapping(method=RequestMethod.POST)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<String> addSubject(@RequestParam("name")String name) {
 		subjectService.addSubjectByName(name);
@@ -39,7 +39,7 @@ public class SubjectController {
 	
 	// GET - get subject by name - this one does not allow periods in the name
 	@RequestMapping(method=RequestMethod.GET, value="/{name}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public Subject getSubjectByName(@PathVariable("name")String name) {
 		return subjectService.getSubjectByName(name);
@@ -47,7 +47,7 @@ public class SubjectController {
 	
 	// GET - get subject by name
 	@RequestMapping(method=RequestMethod.GET, value="/name")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public Subject getSubjectByNameObject(@RequestBody Subject subject) {
 		return subjectService.getSubjectByName(subject.getName());
@@ -55,7 +55,7 @@ public class SubjectController {
 	
 	// GET - get all subjects
 	@RequestMapping(method=RequestMethod.GET)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public List<Subject> getAllSubjects() {
 		return subjectService.getAllSubjects();
@@ -63,7 +63,7 @@ public class SubjectController {
 	
 	// PUT - update subject name. Used object input here because some names can have periods (like: .NET)
 	@RequestMapping(method=RequestMethod.PUT)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<String> updateSubject(@RequestBody Subject subject) {
 		subjectService.updateSubject(subject);
@@ -72,7 +72,7 @@ public class SubjectController {
 	
 	// DELETE - remove the subject from db
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<String> removeSubject(@PathVariable("id")int id) {
 		subjectService.removeSubject(id);
