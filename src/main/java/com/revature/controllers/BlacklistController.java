@@ -28,7 +28,7 @@ public class BlacklistController {
 	// looking for this header: "Content-Type", "application/x-www-form-urlencoded"
 	// looking for this data: "resource=7&subject=4"
 	@RequestMapping(method=RequestMethod.POST)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<String> addToBlacklist(@RequestParam("resource")int resourceId, @RequestParam("subject")int subjectId) {
 		blacklistService.addToBlacklist(resourceId, subjectId);
@@ -37,7 +37,7 @@ public class BlacklistController {
 	
 	// GET - get all blacklist entries
 	@RequestMapping(method=RequestMethod.GET)
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public List<Blacklist> getAllFromBlacklist() {
 		return blacklistService.getAllFromBlacklist();
@@ -47,7 +47,7 @@ public class BlacklistController {
 	// looking for get request like:
 	// http://localhost:8080/LegendaryStudyCompanionBackend/blacklist/2&3
 	@RequestMapping(method=RequestMethod.GET, value="/{resourceId}&{subjectId}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public Blacklist getBlacklistByIds(@PathVariable("resourceId")int resourceId, @PathVariable("subjectId")int subjectId) {
 		return blacklistService.getBlacklistByIds(resourceId, subjectId);
@@ -57,7 +57,7 @@ public class BlacklistController {
 	// looking for PUT request with url like following:
 	// http://localhost:8080/LegendaryStudyCompanionBackend/blacklist/2&3:denied
 	@RequestMapping(method=RequestMethod.PUT, value="/{resourceId}&{subjectId}:{newStatus}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<Blacklist> updateBlacklistEntry(@PathVariable("resourceId")int resourceId, @PathVariable("subjectId")int subjectId, @PathVariable("newStatus")String newStatus) {
 		blacklistService.updateBlacklistEntry(resourceId, subjectId, newStatus);
@@ -66,7 +66,7 @@ public class BlacklistController {
 	
 	// DELETE - delete blacklist entry
 	@RequestMapping(method=RequestMethod.DELETE, value="/{resourceId}&{subjectId}")
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@ResponseBody
 	public ResponseEntity<String> removeBlacklistEntry(@PathVariable("resourceId")int resourceId, @PathVariable("subjectId")int subjectId) {
 		blacklistService.removeBlacklistEntry(resourceId, subjectId);
