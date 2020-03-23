@@ -1,6 +1,8 @@
 package com.revature.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -83,6 +85,15 @@ public class ResourceService {
 		return r;
 	}
 	
+	private List<Resource> sortResourcesByLikeCount(List<Resource> resources) {
+		
+		Comparator<Resource> compareByLikeCount = (Resource o1, Resource o2) -> Integer.compare(o1.getLikeCount(), o2.getLikeCount());
+		
+		Collections.sort(resources, compareByLikeCount.reversed());
+		
+		return resources;
+	}
+	
 	public List<Resource> getResourceList(String query, int listSize, User u) {
 		List<Resource> resources = new ArrayList<>();
 		
@@ -97,6 +108,8 @@ public class ResourceService {
 				resources.add(r);
 			}
 		}
+		
+		resources = sortResourcesByLikeCount(resources);
 		
 		// If list is still too small then populate from APIs
 		if (resources.size() < listSize) {
