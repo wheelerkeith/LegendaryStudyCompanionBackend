@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -131,15 +133,19 @@ public class UserService {
 			return 0;
 		} 
 		
-		r = resCheck;
+		// Create iterator for the hashSet
+		Iterator<Resource> likedResources = u.getResourceList().iterator();
+		Set<Resource> newResourceList = new HashSet<>();
 		
-		Set<Resource> likedResources = u.getResourceList();
+		// Iterate through the hash set and ignore elements that match
+		while(likedResources.hasNext()) {
+			Resource res = likedResources.next();
+			if (!res.getUrl().equals(resCheck.getUrl()) && !res.getSubject().getName().equals(resCheck.getSubject().getName())) {
+				newResourceList.add(res);
+			}
+		}
 		
-		likedResources.remove(r);
-		
-		u.setResourceList(likedResources);
-		
-		System.out.println(u);
+		u.setResourceList(newResourceList);
 		
 		return userDao.updateUser(u);
 	}
