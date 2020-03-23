@@ -1,11 +1,5 @@
 package com.revature;
 
-import static org.junit.Assert.assertEquals;
-
-import org.hibernate.Session;
-import org.junit.Test;
-
-import com.revature.models.User;
 import com.revature.services.UserService;
 
 public class DriverTest {
@@ -13,7 +7,7 @@ public class DriverTest {
 	private static UserService us = new UserService();
 	
 	
-	@Test
+
 	public void testSomething() {
 		
 		//need to update with new connection settings
